@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { hot } from 'react-hot-loader';
 import logo from './logo.svg';
 import './App.css';
 import { ApolloProvider } from 'react-apollo';
@@ -24,4 +25,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default hot(module)(App);

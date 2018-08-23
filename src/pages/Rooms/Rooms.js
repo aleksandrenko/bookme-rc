@@ -3,6 +3,8 @@ import React, { Fragment } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
+import LoadWrapper from '../../components/LoadWrapper/LoadWrapper';
+
 const GET_FLOORS = gql`
   query floors($pageSize: Int, $offset: Int) {
     floors(pageSize: $pageSize, offset: $offset) {
@@ -39,23 +41,25 @@ class RoomGroups extends React.Component {
       >
         {({ loading, error, data, fetchMore, refetch }) => {
           return (
-            <Fragment>
-              {data &&
-                data.floors && (
-                  <ul>
-                    {data.floors.map(floor => (
-                      <li key={floor.name}>
-                        {floor.name}
-                        <ul>
-                          {floor.rooms.map(room => (
-                            <li key={room.id}>{room.name}</li>
-                          ))}
-                        </ul>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-            </Fragment>
+            <LoadWrapper loading={loading} error={error} data={data}>
+              <Fragment>
+                {data &&
+                  data.floors && (
+                    <ul>
+                      {data.floors.map(floor => (
+                        <li key={floor.name}>
+                          {floor.name}
+                          <ul>
+                            {floor.rooms.map(room => (
+                              <li key={room.id}>{room.name}</li>
+                            ))}
+                          </ul>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+              </Fragment>
+            </LoadWrapper>
           );
         }}
       </Query>

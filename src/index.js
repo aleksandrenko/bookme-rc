@@ -13,7 +13,7 @@ import logger from './utils/logger';
 // import registerServiceWorker from './registerServiceWorker';
 // registerServiceWorker();
 
-const appStartProfiler = logger.startTimer();
+const appRenderProfiler = logger.startTimer();
 
 ReactDOM.render(
   <BrowserRouter>
@@ -24,4 +24,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-appStartProfiler.done({ message: 'App rendered' });
+appRenderProfiler.done({ message: 'App rendered' });

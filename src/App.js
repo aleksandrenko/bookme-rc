@@ -10,7 +10,7 @@ import Login from './pages/Login/Login';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="app">
         <div>
           pathname: <b>{this.props.history.location.pathname}</b>
         </div>

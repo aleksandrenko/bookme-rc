@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
-import logo from './logo.svg';
 import './App.css';
-import { ApolloProvider } from 'react-apollo';
-import client from './apolloClient';
-import RoomsComponent from './RoomsComponent';
+
+import { Switch, Route, withRouter } from 'react-router-dom';
+
+import Rooms from './pages/Rooms/Rooms';
+import NotFound from './pages/404/404';
 
 class App extends Component {
   render() {
     return (
-      <ApolloProvider client={client}>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
+      <div>
+        <div>
+          pathname: <b>{this.props.history.location.pathname}</b>
         </div>
-        <RoomsComponent />
-      </ApolloProvider>
+        <Switch>
+          <Route exact path="/" component={Rooms} />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
     );
   }
 }
 
-export default hot(module)(App);
+const RoutedApp = withRouter(App);
+export default hot(module)(RoutedApp);

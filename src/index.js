@@ -8,9 +8,12 @@ import client from './utils/apolloClient';
 import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
+import logger from './utils/logger';
 
 // import registerServiceWorker from './registerServiceWorker';
 // registerServiceWorker();
+
+const appStartProfiler = logger.startTimer();
 
 ReactDOM.render(
   <BrowserRouter>
@@ -20,3 +23,5 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root')
 );
+
+appStartProfiler.done({ message: 'App rendered' });

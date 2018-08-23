@@ -10,7 +10,7 @@ import NotFound from './pages/404/404';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className="app">
         <div>
           pathname: <b>{this.props.history.location.pathname}</b>
         </div>

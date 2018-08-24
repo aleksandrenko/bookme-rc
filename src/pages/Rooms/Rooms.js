@@ -4,6 +4,7 @@ import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
 
 import LoadWrapper from '../../components/LoadWrapper/LoadWrapper';
+import Header from '../../components/Header/Header';
 
 const GET_FLOORS = gql`
   query floors($pageSize: Int, $offset: Int) {
@@ -33,6 +34,7 @@ class RoomGroups extends React.Component {
 
   render() {
     const state = this.state;
+    const { history } = this.props;
 
     return (
       <Query
@@ -43,6 +45,12 @@ class RoomGroups extends React.Component {
           return (
             <LoadWrapper loading={loading} error={error} data={data}>
               <Fragment>
+                <Header
+                  title="BookME"
+                  showLoading={loading}
+                  history={history}
+                />
+
                 {data &&
                   data.floors && (
                     <ul>

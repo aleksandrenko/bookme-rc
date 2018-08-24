@@ -7,16 +7,29 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import Rooms from './pages/Rooms/Rooms';
 import NotFound from './pages/404/404';
 import Login from './pages/Login/Login';
+import About from './pages/About/About';
+
 class App extends Component {
   render() {
+    const { history } = this.props;
+
     return (
       <div className="app">
         <div>
-          pathname: <b>{this.props.history.location.pathname}</b>
+          pathname: <b>{history.location.pathname}</b>
         </div>
-        <Login />
         <Switch>
           <Route exact path="/" component={Rooms} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/login" component={Login} />
+          <Route
+            exact
+            path="/logout"
+            render={() => {
+              console.log('log out');
+              history.push('login');
+            }}
+          />
           <Route component={NotFound} />
         </Switch>
       </div>
@@ -25,4 +38,5 @@ class App extends Component {
 }
 
 const RoutedApp = withRouter(App);
+
 export default hot(module)(RoutedApp);

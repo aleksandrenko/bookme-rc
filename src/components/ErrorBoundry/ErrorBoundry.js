@@ -6,7 +6,10 @@ class ErrorBoundry extends React.Component {
     super(props);
     apolloClient.setExternalErrorHandler(err => {
       if (err.type === 'ERROR' && err.code === 401)
-        this.props.history.push('/login');
+        this.props.history.push({
+          pathname: '/login',
+          state: { error: err }
+        });
     });
   }
 

@@ -122,9 +122,12 @@ class Login extends React.Component {
               </div>
 
               <div style={styles.errorView}>
-                {state.error && (
-                  <span style={styles.errorText}>{state.error}</span>
-                )}
+                {this.props.location.state &&
+                  this.props.location.state.error && (
+                    <span style={styles.errorText}>
+                      {this.props.location.state.error.message}
+                    </span>
+                  )}
               </div>
             </div>
           );

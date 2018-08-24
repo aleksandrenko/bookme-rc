@@ -49,10 +49,9 @@ const unauthorizedLink = onError(({ graphQLErrors }) => {
     graphQLErrors.find(error => error.message.search('401') >= 0);
 
   // Wait for all the navigation pages to be initialized and usable
-  isUnauthorized &&
-    setTimeout(() => {
-      // Navigate to login screen
-    }, 0);
+  if (isUnauthorized) {
+    throw new Error('unathorised');
+  }
 });
 
 export default new ApolloClient({

@@ -1,0 +1,97 @@
+.header.container {
+  display: flex;
+  background: #77ced7;
+  color: #fff;
+  padding: 10px;
+  border-bottom: solid 1px #eee;
+  align-items: center;
+}
+
+.header .loader {
+  background: url('../../assets/images/reload-1s-24px.svg') no-repeat center
+    center;
+  height: 24px;
+  width: 24px;
+  padding: 10px;
+}
+
+.header .backBtn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  width: 24px;
+  height: 24px;
+  box-sizing: content-box;
+}
+
+.header .titleWrapper {
+  flex: 1;
+}
+
+.header .title {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.header .subtitle {
+  font-size: 1rem;
+}
+
+.header .menu_btn {
+  background: url('../../assets/images/more_vert.png') no-repeat center center;
+  background-size: 24px 24px;
+  width: 36px;
+  height: 36px;
+}
+
+.header .menu_btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.header .overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.header .menu {
+  background: #fff;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 75px;
+  right: 10px;
+  border-radius: 5px;
+  color: #666;
+}
+
+.header .menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header .menu li {
+  padding: 15px 20px;
+  width: 180px;
+  border-bottom: solid 1px #eee;
+}
+
+.header .menu li:last-child {
+  border-bottom: none;
+}
+
+.header .menu::after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+
+  border-bottom: 7px solid #fff;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
+import Header from '../../components/Header/Header';
 
 import { withRouter } from 'react-router-dom';
 
@@ -56,6 +57,8 @@ class Login extends React.Component {
 
           return (
             <div style={styles.login}>
+              <Header title="Login" showLogoutMenuItem={false} />
+
               <div style={[styles.loginPanel]}>
                 <input
                   style={styles.input}

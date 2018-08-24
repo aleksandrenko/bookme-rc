@@ -5,6 +5,7 @@
   "dependencies": {
     "apollo-boost": "^0.1.14",
     "apollo-link-context": "^1.0.8",
+    "feature-toggle": "^0.3.1",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
     "husky": "^0.14.3",

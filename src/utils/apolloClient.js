@@ -52,7 +52,7 @@ const unauthorizedLink = onError(({ graphQLErrors }) => {
 
   // Wait for all the navigation pages to be initialized and usable
   if (isUnauthorized) {
-    throw new Error('unathorised');
+    throw new Error('unathorized');
   }
 });
 

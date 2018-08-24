@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class About extends React.Component {
+class ErrorBoundry extends React.Component {
   componentDidCatch(error, info) {
     console.log(error, info);
   }
@@ -11,4 +11,4 @@ class About extends React.Component {
   }
 }
 
-export default withRouter(About);
+export default withRouter(ErrorBoundry);

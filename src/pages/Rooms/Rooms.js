@@ -43,31 +43,29 @@ class RoomGroups extends React.Component {
       >
         {({ loading, error, data, fetchMore, refetch }) => {
           return (
-            <LoadWrapper loading={loading} error={error} data={data}>
-              <Fragment>
-                <Header
-                  title="BookME"
-                  showLoading={loading}
-                  history={history}
-                />
+            <Fragment>
+              <Header title="BookME" showLoading={loading} />
 
-                {data &&
-                  data.floors && (
-                    <ul>
-                      {data.floors.map(floor => (
-                        <li key={floor.name}>
-                          {floor.name}
-                          <ul>
-                            {floor.rooms.map(room => (
-                              <li key={room.id}>{room.name}</li>
-                            ))}
-                          </ul>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-              </Fragment>
-            </LoadWrapper>
+              <LoadWrapper loading={loading} error={error} data={data}>
+                <Fragment>
+                  {data &&
+                    data.floors && (
+                      <ul>
+                        {data.floors.map(floor => (
+                          <li key={floor.name}>
+                            {floor.name}
+                            <ul>
+                              {floor.rooms.map(room => (
+                                <li key={room.id}>{room.name}</li>
+                              ))}
+                            </ul>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                </Fragment>
+              </LoadWrapper>
+            </Fragment>
           );
         }}
       </Query>

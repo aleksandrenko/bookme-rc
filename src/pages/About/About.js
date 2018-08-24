@@ -6,12 +6,7 @@ class About extends React.Component {
   render() {
     return (
       <Fragment>
-        <Header
-          hasBackButton={true}
-          title="About BookMe"
-          showAboutMenuItem={false}
-          history={this.props.history}
-        />
+        <Header hasBackButton={true} title="About" showLogoutMenuItem={false} />
         <p>
           <span>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cum

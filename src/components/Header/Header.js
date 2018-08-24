@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.css';
 import arrow_back from './../../assets/images/arrow_back_white@2x.png';
+import { withRouter } from 'react-router-dom';
 
 class Header extends Component {
   constructor(props) {
@@ -34,7 +35,8 @@ class Header extends Component {
       history,
       showLoading,
       showMenu = true,
-      showAboutMenuItem = true
+      showAboutMenuItem = true,
+      showLogoutMenuItem = true
     } = this.props;
 
     return (
@@ -66,7 +68,9 @@ class Header extends Component {
                 {showAboutMenuItem && (
                   <li onClick={this._navigateToAboutPage}>About</li>
                 )}
-                <li onClick={this._navigateToLogout}>Log out</li>
+                {showLogoutMenuItem && (
+                  <li onClick={this._navigateToLogout}>Log out</li>
+                )}
               </ul>
             </div>
           </Fragment>
@@ -80,9 +84,10 @@ Header.propTypes = {
   title: PropTypes.string,
   subTitle: PropTypes.string,
   hasBackButton: PropTypes.bool,
+  showLogoutMenuItem: PropTypes.bool,
+  showAboutMenuItem: PropTypes.bool,
   showLoading: PropTypes.bool,
-  showMenu: PropTypes.bool,
-  history: PropTypes.object
+  showMenu: PropTypes.bool
 };
 
-export default Header;
+export default withRouter(Header);

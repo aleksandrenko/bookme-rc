@@ -49,7 +49,8 @@ class Login extends React.Component {
         }}
         update={(caches, { data: { login } }) => {
           localStorage.setItem('token', login);
-          //   const { history } = this.props;
+          const { history } = this.props;
+          history.goBack();
         }}
       >
         {login => {

@@ -1,9 +1,13 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import apolloClient from '../../utils/apolloClient';
 class ErrorBoundry extends React.Component {
-  componentDidCatch(error, info) {
-    console.log(error, info);
+  constructor(props) {
+    super(props);
+    apolloClient.setExternalErrorHandler(err => {
+      if (err.type === 'ERROR' && err.code === 401)
+        this.props.history.push('/login');
+    });
   }
 
   render() {

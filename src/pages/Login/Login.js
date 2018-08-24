@@ -1,9 +1,7 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 
-import { withNavigation } from 'react-navigation';
-// import NavigationService from 'BookMe/NavigationService';
-// import bgSourceImage from '../../../assets/images/bg.png';
+import { withRouter } from 'react-router-dom';
 
 import gql from 'graphql-tag';
 
@@ -19,47 +17,16 @@ const styles = {
 class Login extends React.Component {
   constructor() {
     super();
+    const username = localStorage.getItem('username');
+    const safeUsername = username || '';
     this.state = {
-      username: '',
+      username: safeUsername,
       password: '',
       isKeyboardVisible: false,
       submitting: false,
       error: null
     };
-
-    // localStorage.getItem('username').then(username => {
-    //   const safeUsername = username || '';
-    //   this.setState({ username: safeUsername });
-    // });
   }
-
-  //   componentDidMount() {
-  //     this.keyboardDidShowListener = Keyboard.addListener(
-  //       'keyboardDidShow',
-  //       this._keyboardDidShow
-  //     );
-  //     this.keyboardDidHideListener = Keyboard.addListener(
-  //       'keyboardDidHide',
-  //       this._keyboardDidHide
-  //     );
-  //   }
-
-  //   componentWillUnmount() {
-  //     this.keyboardDidShowListener.remove();
-  //     this.keyboardDidHideListener.remove();
-  //   }
-
-  //   _keyboardDidShow = () => {
-  //     this.setState({ ...this.state, isKeyboardVisible: true });
-  //   };
-
-  //   _keyboardDidHide = () => {
-  //     this.setState({ ...this.state, isKeyboardVisible: false });
-  //   };
-
-  //   handleOnNavigateBack = () => {
-  //     this.props.navigation.state.params.refresh();
-  //   };
 
   render() {
     return (
@@ -81,19 +48,7 @@ class Login extends React.Component {
         }}
         update={(caches, { data: { login } }) => {
           localStorage.setItem('token', login);
-          const { navigation } = this.props;
-
-          //   const {
-          //     routeName,
-          //     key,
-          //     params
-          //   } = NavigationService.getPreviousRouteForLogin();
-
-          //   navigation.navigate({
-          //     routeName,
-          //     key,
-          //     params: { ...params, forceRefetch: true }
-          //   });
+          //   const { history } = this.props;
         }}
       >
         {login => {
@@ -101,33 +56,28 @@ class Login extends React.Component {
 
           return (
             <div style={styles.login}>
-              {/* <ImageBackground
-                source={bgSourceImage}
-                resizeMode="cover"
-                style={styles.imageBackgroundStyles}
-              > */}
               <div style={[styles.loginPanel]}>
                 <input
                   style={styles.input}
                   placeholder="Username@epam.com"
-                  autoCorrect={false}
-                  underlineColorAndroid="transparent"
                   value={state.username}
-                  onChangeText={username => {
-                    username && localStorage.setItem('username', username);
-                    this.setState({ username: username });
+                  onChange={username => {
+                    username &&
+                      localStorage.setItem('username', username.target.value);
+                    this.setState({
+                      ...state,
+                      username: username.target.value
+                    });
                   }}
                 />
                 <input
                   style={styles.input}
+                  type="password"
                   placeholder="Password"
-                  autoCorrect={false}
-                  underlineColorAndroid="transparent"
-                  onChangeText={password =>
-                    this.setState({ ...state, password })
+                  onChange={password =>
+                    this.setState({ ...state, password: password.target.value })
                   }
                   value={state.password}
-                  secureTextEntry={true}
                 />
 
                 <button
@@ -137,8 +87,6 @@ class Login extends React.Component {
                     (!state.password || !state.username)
                   }
                   onClick={() => {
-                    //   Keyboard.dismiss();
-
                     this.setState({
                       ...state,
                       submitting: true
@@ -158,7 +106,9 @@ class Login extends React.Component {
                       }
                     });
                   }}
-                />
+                >
+                  Login
+                </button>
 
                 {/* {state.submitting && (
                     <View style={styles.loadIndicator}>
@@ -167,17 +117,11 @@ class Login extends React.Component {
                   )} */}
               </div>
 
-              {/* <View style={styles.errorView}>
-                  {state.error && (
-                    <Text style={styles.errorText}>{state.error}</Text>
-                  )}
-                </View> */}
-
-              {/* <View
-                  style={[
-                    state.isKeyboardVisible ? styles.visibleKeyboard : null
-                  ]}
-                /> */}
+              <div style={styles.errorView}>
+                {state.error && (
+                  <span style={styles.errorText}>{state.error}</span>
+                )}
+              </div>
             </div>
           );
         }}
@@ -186,4 +130,4 @@ class Login extends React.Component {
   }
 }
 
-export default withNavigation(Login);
+export default withRouter(Login);

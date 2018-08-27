@@ -1,0 +1,38 @@
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #333;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.list .section {
+  padding: 10px;
+  padding-top: 19px;
+  padding-bottom: 7px;
+  background-color: rgba(139, 139, 139, 0.1);
+  border-bottom: solid 1px rgba(139, 139, 139, 0.25);
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+}
+
+.list .item {
+  border-bottom: solid 1px #eee;
+  text-transform: capitalize;
+  border-bottom: solid 1px #ccc;
+  height: 52px;
+  line-height: 52px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding-left: 10px;
+  font-size: 18px;
+  color: #666;
+}
+
+.list .item.arrow-right {
+  background: url('../../assets/images/outline-arrow_forward_ios-24px.svg')
+    no-repeat;
+  background-size: 20px 20px;
+  background-position: right 8px center;
+}

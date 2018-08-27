@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import apolloClient from '../../utils/apolloClient';
+
 class ErrorBoundry extends React.Component {
   constructor(props) {
     super(props);

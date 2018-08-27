@@ -5,6 +5,7 @@ import { Query } from 'react-apollo';
 
 import LoadWrapper from '../../components/LoadWrapper/LoadWrapper';
 import Header from '../../components/Header/Header';
+import List from '../../components/List/List';
 
 const GET_FLOORS = gql`
   query floors($pageSize: Int, $offset: Int) {
@@ -48,21 +49,16 @@ class RoomGroups extends React.Component {
 
               <LoadWrapper loading={loading} error={error} data={data}>
                 <Fragment>
-                  {data &&
-                    data.floors && (
-                      <ul>
-                        {data.floors.map(floor => (
-                          <li key={floor.name}>
-                            {floor.name}
-                            <ul>
-                              {floor.rooms.map(room => (
-                                <li key={room.id}>{room.name}</li>
-                              ))}
-                            </ul>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                  <List
+                    data={data.floors}
+                    childrenCollection="rooms"
+                    labelKey="name"
+                    hasArrow={true}
+                    hasCheckbox={true}
+                    onItemClick={item => {
+                      console.log('clicked', item);
+                    }}
+                  />
                 </Fragment>
               </LoadWrapper>
             </Fragment>

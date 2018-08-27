@@ -27,7 +27,7 @@ class App extends Component {
             path="/logout"
             render={() => {
               console.log('log out');
-              history.push('login');
+              // history.push('login');
             }}
           />
           <Route component={NotFound} />

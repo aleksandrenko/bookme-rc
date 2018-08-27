@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.css';
-import arrow_back from './../../assets/images/arrow_back_white@2x.png';
+import arrow_back from './../../assets/images/arrow_back_white.png';
 import { withRouter } from 'react-router-dom';
 
 class Header extends Component {

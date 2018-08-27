@@ -34,6 +34,7 @@
   "scripts": {
     "start-js": "react-app-rewired start",
     "start": "npm-run-all -p watch-css start-js",
+    "storybook": "start-storybook -p 9001 -c .storybook",
     "build-js": "react-app-rewired build",
     "build": "npm-run-all build-css build-js",
     "precommit": "lint-staged",
@@ -41,5 +42,8 @@
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-app-rewired eject"
+  },
+  "devDependencies": {
+    "@storybook/react": "^3.4.10"
   }
 }

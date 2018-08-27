@@ -14,7 +14,7 @@ class List extends React.Component {
 
   _getSectionedItems = props => {
     const {
-      data,
+      data = [],
       childrenCollection,
       labelKey,
       onItemClick,
@@ -42,7 +42,7 @@ class List extends React.Component {
       return (
         <li
           className={classNames}
-          key={`item-${item[labelKey]}`}
+          key={`item-${selectedItemKey}`}
           onClick={() => {
             const itemCopy = Object.assign({}, item);
 
@@ -61,7 +61,7 @@ class List extends React.Component {
               itemCopy.checked = newCheckboxState;
             }
 
-            onItemClick(itemCopy);
+            onItemClick && onItemClick(itemCopy);
           }}
         >
           {hasCheckbox && (
@@ -91,9 +91,7 @@ class List extends React.Component {
   };
 
   render() {
-    const items = this._getSectionedItems(this.props);
-
-    return <ul className="list">{items}</ul>;
+    return <ul className="list">{this._getSectionedItems(this.props)}</ul>;
   }
 }
 

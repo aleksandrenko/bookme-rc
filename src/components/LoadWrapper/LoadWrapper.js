@@ -43,7 +43,7 @@ export default props => {
   }
 
   return (
-    <div className={styles.imageBackgroundStyles}>
+    <div className="imageBackgroundStyles">
       <div className={styles.container}>{children}</div>
     </div>
   );

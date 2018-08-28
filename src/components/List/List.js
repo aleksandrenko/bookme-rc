@@ -19,7 +19,8 @@ class List extends React.Component {
       labelKey,
       onItemClick,
       hasArrow,
-      hasCheckbox
+      hasCheckbox,
+      checkboxLabel
     } = props;
 
     const getSectionLi = (item, props) => {
@@ -33,7 +34,13 @@ class List extends React.Component {
     };
 
     const getItemLi = (item, props) => {
-      const { labelKey, onItemClick, hasArrow, hasCheckbox } = props;
+      const {
+        labelKey,
+        onItemClick,
+        hasArrow,
+        hasCheckbox,
+        checkboxLabel
+      } = props;
       const classNames = `item ${hasArrow ? 'arrow-right' : ''}`;
 
       const selectedItemKey = item.id;
@@ -68,6 +75,12 @@ class List extends React.Component {
             <input type="checkbox" checked={currentItemStatus || false} />
           )}
           {item[labelKey]}
+          {checkboxLabel && (
+            <span className="checkboxLabel">
+              {currentItemStatus === true && checkboxLabel.on}
+              {currentItemStatus === false && checkboxLabel.off}
+            </span>
+          )}
         </li>
       );
     };
@@ -101,7 +114,11 @@ List.propTypes = {
   labelKey: PropTypes.string,
   onItemClick: PropTypes.func,
   hasArrow: PropTypes.bool,
-  hasCheckbox: PropTypes.bool
+  hasCheckbox: PropTypes.bool,
+  checkboxLabel: PropTypes.objectOf({
+    on: PropTypes.string,
+    off: PropTypes.string
+  })
 };
 
 export default List;

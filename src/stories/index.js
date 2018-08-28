@@ -37,6 +37,29 @@ book.add('- item with checkbox with click handler.', () => {
   );
 });
 
+book.add('- item with checkboxLabel.', () => {
+  const mockdata = [
+    { label: 'item1', id: 61 },
+    { label: 'item2', id: 62 },
+    { label: 'item3', id: 63 }
+  ];
+
+  return (
+    <List
+      data={mockdata}
+      hasCheckbox={true}
+      checkboxLabel={{
+        on: 'checked',
+        off: 'unchecked'
+      }}
+      labelKey="label"
+      onItemClick={item => {
+        action(`Item Clicked: ${item.label}`);
+      }}
+    />
+  );
+});
+
 book.add('- sectioned list.', () => {
   const mockdata = [
     {

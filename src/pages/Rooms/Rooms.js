@@ -35,7 +35,7 @@ class RoomGroups extends React.Component {
 
   render() {
     const state = this.state;
-    const { history } = this.props;
+    const { history, hasCheckbox } = this.props;
 
     return (
       <Query
@@ -55,6 +55,10 @@ class RoomGroups extends React.Component {
                     labelKey="name"
                     hasArrow={true}
                     hasCheckbox={true}
+                    // checkboxLabel={{
+                    //   on: '(book)',
+                    //   off: '(unbook)'
+                    // }}
                     onItemClick={item => {
                       console.log('clicked', item);
                     }}

@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.css';
 import arrow_back from './../../assets/images/arrow_back_white.png';
-import { withRouter } from 'react-router-dom';
 
 class Header extends Component {
   constructor(props) {
@@ -87,7 +86,8 @@ Header.propTypes = {
   showLogoutMenuItem: PropTypes.bool,
   showAboutMenuItem: PropTypes.bool,
   showLoading: PropTypes.bool,
-  showMenu: PropTypes.bool
+  showMenu: PropTypes.bool,
+  history: PropTypes.object
 };
 
-export default withRouter(Header);
+export default Header;

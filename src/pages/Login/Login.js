@@ -30,6 +30,8 @@ class Login extends React.Component {
   }
 
   render() {
+    const { history } = this.props;
+
     return (
       <Mutation
         mutation={LOGIN_MUTATION}
@@ -49,7 +51,6 @@ class Login extends React.Component {
         }}
         update={(caches, { data: { login } }) => {
           localStorage.setItem('token', login);
-          const { history } = this.props;
           history.goBack();
         }}
       >
@@ -58,7 +59,11 @@ class Login extends React.Component {
 
           return (
             <div style={styles.login}>
-              <Header title="Login" showLogoutMenuItem={false} />
+              <Header
+                title="Login"
+                showLogoutMenuItem={false}
+                history={history}
+              />
 
               <div style={[styles.loginPanel]}>
                 <input

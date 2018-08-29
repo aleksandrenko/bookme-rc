@@ -4,9 +4,16 @@ import { withRouter } from 'react-router-dom';
 
 class About extends React.Component {
   render() {
+    const { history } = this.props;
+
     return (
       <Fragment>
-        <Header hasBackButton={true} title="About" showLogoutMenuItem={false} />
+        <Header
+          hasBackButton={true}
+          title="About"
+          showLogoutMenuItem={false}
+          history={history}
+        />
         <p>
           <span>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad cum

@@ -19,13 +19,14 @@
 }
 
 .list .item {
-  border-bottom: solid 1px #eee;
-  text-transform: capitalize;
-  border-bottom: solid 1px #ccc;
+  display: flex;
+  align-items: center;
   height: 52px;
+  padding-left: 10px;
+  border-bottom: solid 1px #ccc;
+  text-transform: capitalize;
   line-height: 52px;
   background-color: rgba(255, 255, 255, 0.5);
-  padding-left: 10px;
   font-size: 18px;
   color: #666;
 }
@@ -35,4 +36,15 @@
     no-repeat;
   background-size: 20px 20px;
   background-position: right 8px center;
+}
+
+.list .checkboxLabel {
+  flex-basis: 100%;
+  width: fit-content;
+  margin-right: 30px;
+  margin-left: 30px;
+  color: #666;
+  font-size: 14px;
+  text-align: right;
+  text-transform: initial;
 }

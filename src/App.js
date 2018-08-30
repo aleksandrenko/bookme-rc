@@ -12,8 +12,6 @@ import About from './pages/About/About';
 
 class App extends Component {
   render() {
-    const { history } = this.props;
-
     return (
       <div className="app">
         <Switch>

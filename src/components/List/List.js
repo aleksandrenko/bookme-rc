@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './styles.css';
+import './styles.css';
 
 class List extends React.Component {
   constructor(props) {
@@ -13,15 +13,7 @@ class List extends React.Component {
   }
 
   _getSectionedItems = props => {
-    const {
-      data = [],
-      childrenCollection,
-      labelKey,
-      onItemClick,
-      hasArrow,
-      hasCheckbox,
-      checkboxLabel
-    } = props;
+    const { data = [], childrenCollection } = props;
 
     const getSectionLi = (item, props) => {
       const { labelKey } = props;

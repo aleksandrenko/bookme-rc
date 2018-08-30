@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.css';
+import './styles.css';
 
 export default props => {
   const { loading, error, networkStatus, children, data } = props;
@@ -12,9 +12,9 @@ export default props => {
   if (!isPooling) {
     if (loading)
       return (
-        <div className={styles.imageBackgroundStyles}>
-          <div className={styles.centeredContainer}>
-            <b className={styles.loadingText}>Loading data ...</b>
+        <div className="imageBackgroundStyles">
+          <div className="centeredContainer">
+            <b className="loadingText">Loading data ...</b>
           </div>
         </div>
       );
@@ -32,8 +32,8 @@ export default props => {
           </button>
         ) : null;
       return (
-        <div className={styles.imageBackgroundStyles}>
-          <div className={styles.centeredContainer}>
+        <div className="imageBackgroundStyles">
+          <div className="centeredContainer">
             <div>{error.message}</div>
             {loginBtn}
           </div>
@@ -42,9 +42,5 @@ export default props => {
     }
   }
 
-  return (
-    <div className="imageBackgroundStyles">
-      <div className={styles.container}>{children}</div>
-    </div>
-  );
+  return <div className="imageBackgroundStyles">{children}</div>;
 };

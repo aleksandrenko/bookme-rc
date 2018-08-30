@@ -61,6 +61,7 @@ class RoomGroups extends React.Component {
                     // }}
                     onItemClick={item => {
                       console.log('clicked', item);
+                      history.push(`/room/${item.emailKey}`);
                     }}
                   />
                 </Fragment>

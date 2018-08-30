@@ -1,0 +1,50 @@
+.wrapper {
+  height: 100%;
+  background-image: url('../../assets/images/bg.png');
+  background-size: cover;
+}
+
+.details {
+  display: flex;
+  height: 100px;
+  background-color: #fff;
+}
+
+.roomImage {
+  width: 100px;
+  height: 80px;
+  background-color: #eee;
+  margin: 8px;
+  border-radius: 5px;
+  border: 0.5px solid #ccc;
+}
+
+.info {
+  flex-direction: column;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.info p {
+  margin: 5px 0;
+}
+
+.slots ul {
+  /* height: 475px; */
+  overflow-y: scroll;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.sectionHeader {
+  padding: 10px;
+  padding-top: 19px;
+  padding-bottom: 7px;
+  margin: 0;
+  border-bottom: solid 1px rgba(139, 139, 139, 0.25);
+  background-color: rgba(139, 139, 139, 0.1);
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+}

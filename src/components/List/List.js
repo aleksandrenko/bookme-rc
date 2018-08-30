@@ -92,7 +92,7 @@ class List extends React.Component {
         const itemLis = items.map(item => getItemLi(item, props));
         const sectionLi = getSectionLi(section, props);
 
-        acc.push(sectionLi);
+        sectionLi.props.children && acc.push(sectionLi);
         acc = acc.concat(itemLis);
       } else {
         const itemLi = getItemLi(section, props);

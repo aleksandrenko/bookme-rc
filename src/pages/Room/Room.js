@@ -77,6 +77,7 @@ class Room extends React.Component {
             <div className="info">
               <div className="prop">Seats:</div>
               <div className="prop">Assets:</div>
+              {/* TODO: add assets */}
             </div>
           </div>
           <div className="slots">

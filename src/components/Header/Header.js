@@ -88,7 +88,8 @@ Header.propTypes = {
   showLogoutMenuItem: PropTypes.bool,
   showAboutMenuItem: PropTypes.bool,
   showLoading: PropTypes.bool,
-  showMenu: PropTypes.bool
+  showMenu: PropTypes.bool,
+  history: PropTypes.object
 };
 
 export default withRouter(Header);

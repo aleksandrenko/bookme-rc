@@ -48,13 +48,13 @@ class Room extends React.Component {
           { name: '15:00 - 15:30', id: 17 },
           { name: '15:30 - 16:00', id: 18 },
           { name: '16:00 - 16:30', id: 19 },
-          { name: '13:30 - 14:00', id: 14 },
-          { name: '14:00 - 14:30', id: 15 },
-          { name: '14:30 - 15:00', id: 16 },
-          { name: '15:00 - 15:30', id: 17 },
-          { name: '15:30 - 16:00', id: 18 },
-          { name: '16:00 - 16:30', id: 19 },
-          { name: '16:30 - 17:00', id: 20 }
+          { name: '16:30 - 17:00', id: 20 },
+          { name: '17:00 - 17:30', id: 21 },
+          { name: '17:30 - 18:00', id: 22 },
+          { name: '18:00 - 18:30', id: 23 },
+          { name: '18:30 - 19:00', id: 24 },
+          { name: '19:00 - 19:30', id: 25 },
+          { name: '19:30 - 20:00', id: 26 }
         ]
       }
     ]; //data.getRoom
@@ -63,7 +63,7 @@ class Room extends React.Component {
       // <Query query={GET_ROOM}>
       //   {({ loading, error, data }) => {
       // return (
-      <div class="room">
+      <div className="room">
         <Header
           title="Room Name"
           subTitle="Room Floor"
@@ -90,7 +90,7 @@ class Room extends React.Component {
                   childrenCollection="children"
                   labelKey="name"
                   onItemClick={item => {
-                    console.log(`Item Clicked: ${item.label}`);
+                    console.log(`Item Clicked: ${item.name}, id: ${item.id}`);
                   }}
                 />
               </div>

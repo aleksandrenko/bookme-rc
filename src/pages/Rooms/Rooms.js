@@ -35,7 +35,7 @@ class RoomGroups extends React.Component {
 
   render() {
     const state = this.state;
-    const { history, hasCheckbox } = this.props;
+    const { history } = this.props;
 
     return (
       <Query
@@ -61,6 +61,7 @@ class RoomGroups extends React.Component {
                     // }}
                     onItemClick={item => {
                       console.log('clicked', item);
+                      history.push(`/room/${item.emailKey}`);
                     }}
                   />
                 </Fragment>

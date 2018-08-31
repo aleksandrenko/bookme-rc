@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './styles.css';
+import './styles.css';
 
 class List extends React.Component {
   constructor(props) {
@@ -13,15 +13,7 @@ class List extends React.Component {
   }
 
   _getSectionedItems = props => {
-    const {
-      data = [],
-      childrenCollection,
-      labelKey,
-      onItemClick,
-      hasArrow,
-      hasCheckbox,
-      checkboxLabel
-    } = props;
+    const { data = [], childrenCollection } = props;
 
     const getSectionLi = (item, props) => {
       const { labelKey } = props;
@@ -92,7 +84,7 @@ class List extends React.Component {
         const itemLis = items.map(item => getItemLi(item, props));
         const sectionLi = getSectionLi(section, props);
 
-        acc.push(sectionLi);
+        sectionLi.props.children && acc.push(sectionLi);
         acc = acc.concat(itemLis);
       } else {
         const itemLi = getItemLi(section, props);

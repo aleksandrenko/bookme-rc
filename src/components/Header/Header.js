@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styles from './styles.css';
 import arrow_back from './../../assets/images/arrow_back_white.png';
+import { withRouter } from 'react-router-dom';
+import './styles.css';
 
 class Header extends Component {
   constructor(props) {
@@ -19,11 +20,11 @@ class Header extends Component {
   };
 
   _navigateToAboutPage = () => {
-    this.props.history.push('about');
+    this.props.history.push('/about');
   };
 
   _navigateToLogout = () => {
-    this.props.history.push('logout');
+    this.props.history.push('/logout');
   };
 
   render() {
@@ -47,6 +48,7 @@ class Header extends Component {
             width="24"
             height="24"
             onClick={history.goBack}
+            alt="Go Back"
           />
         )}
 
@@ -62,7 +64,7 @@ class Header extends Component {
         {this.state.showMenu && (
           <Fragment>
             <div className="overlay" onClick={this._toggleMenu} />
-            <div class="menu">
+            <div className="menu">
               <ul>
                 {showAboutMenuItem && (
                   <li onClick={this._navigateToAboutPage}>About</li>
@@ -90,4 +92,4 @@ Header.propTypes = {
   history: PropTypes.object
 };
 
-export default Header;
+export default withRouter(Header);

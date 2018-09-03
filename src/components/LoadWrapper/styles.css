@@ -11,9 +11,10 @@
 }
 
 .imageBackgroundStyles {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 100%;
   background-image: url('../../assets/images/bg.png');
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
 }

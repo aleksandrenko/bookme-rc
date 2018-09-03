@@ -46,7 +46,6 @@ class Header extends Component {
         {hasBackButton && (
           <img
             className="backBtn"
-            alt="Back"
             src={arrow_back}
             width="24"
             height="24"
@@ -96,7 +95,6 @@ Header.propTypes = {
   showLoading: PropTypes.bool,
   showMenu: PropTypes.bool,
   history: PropTypes.object,
-  showMenu: PropTypes.bool,
   onBackButtonPress: PropTypes.func,
   skipNavigation: PropTypes.bool
 };

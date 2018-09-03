@@ -50,7 +50,7 @@ class RoomGroups extends React.Component {
               <LoadWrapper loading={loading} error={error} data={data}>
                 <Fragment>
                   <List
-                    data={data.floors}
+                    data={data && data.floors}
                     childrenCollection="rooms"
                     labelKey="name"
                     hasArrow={true}

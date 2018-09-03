@@ -36,7 +36,9 @@ class Header extends Component {
       showLoading,
       showMenu = true,
       showAboutMenuItem = true,
-      showLogoutMenuItem = true
+      showLogoutMenuItem = true,
+      onBackButtonPress,
+      skipNavigation
     } = this.props;
 
     return (
@@ -47,7 +49,10 @@ class Header extends Component {
             src={arrow_back}
             width="24"
             height="24"
-            onClick={history.goBack}
+            onClick={() => {
+              skipNavigation || history.goBack();
+              onBackButtonPress && onBackButtonPress();
+            }}
             alt="Go Back"
           />
         )}
@@ -89,7 +94,9 @@ Header.propTypes = {
   showAboutMenuItem: PropTypes.bool,
   showLoading: PropTypes.bool,
   showMenu: PropTypes.bool,
-  history: PropTypes.object
+  history: PropTypes.object,
+  onBackButtonPress: PropTypes.func,
+  skipNavigation: PropTypes.bool
 };
 
 export default withRouter(Header);

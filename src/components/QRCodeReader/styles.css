@@ -1,0 +1,49 @@
+.qr-code-button.container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  height: 80px;
+  width: 80px;
+  align-items: center;
+  justify-content: center;
+  background-color: #424143;
+  border-radius: 40%;
+  display: flex;
+}
+
+.qr-code-button .image {
+  width: 55px;
+  height: 55px;
+}
+
+.qr-code-reader.container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #ffffff;
+}
+
+.qr-code-reader .scanner {
+  flex: 1;
+  position: relative;
+}
+
+.qr-code-reader .scanner > section {
+  position: static !important;
+}
+
+.qr-code-reader .scanner > section > div {
+  border: 0 !important;
+}
+
+.qr-code-reader.container input {
+  height: 50px;
+  background: #77ced7;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+}

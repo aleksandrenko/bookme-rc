@@ -9,9 +9,12 @@ import Room from './pages/Room/Room';
 import NotFound from './pages/404/404';
 import Login from './pages/Login/Login';
 import About from './pages/About/About';
+import QRCodeReaderComponent from './components/QRCodeReader/QRCodeReader';
 
 class App extends Component {
   render() {
+    const { location } = this.props;
+
     return (
       <div className="app">
         <Switch>
@@ -29,6 +32,7 @@ class App extends Component {
           />
           <Route component={NotFound} />
         </Switch>
+        {location.pathname !== '/login' && <QRCodeReaderComponent />}
       </div>
     );
   }

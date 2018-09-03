@@ -1,12 +1,11 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
-import Header from '../../components/Header/Header';
-
 import { withRouter } from 'react-router-dom';
-
 import gql from 'graphql-tag';
-
 import QUERY from './Query.graphql';
+
+import './styles.css';
+
 const LOGIN_MUTATION = gql(QUERY);
 
 const styles = {
@@ -58,16 +57,10 @@ class Login extends React.Component {
           const state = this.state;
 
           return (
-            <div style={styles.login}>
-              <Header
-                title="Login"
-                showLogoutMenuItem={false}
-                history={history}
-              />
-
-              <div style={[styles.loginPanel]}>
+            <div className="login">
+              <div className="loginPanel">
                 <input
-                  style={styles.input}
+                  className="input"
                   placeholder="Username@epam.com"
                   value={state.username}
                   onChange={username => {
@@ -80,7 +73,7 @@ class Login extends React.Component {
                   }}
                 />
                 <input
-                  style={styles.input}
+                  className="input"
                   type="password"
                   placeholder="Password"
                   onChange={password =>
@@ -90,6 +83,7 @@ class Login extends React.Component {
                 />
 
                 <button
+                  className="button"
                   title="Login"
                   disabled={
                     this.state.submitting ||
@@ -126,10 +120,10 @@ class Login extends React.Component {
                   )} */}
               </div>
 
-              <div style={styles.errorView}>
+              <div className="errorView">
                 {this.props.location.state &&
                   this.props.location.state.error && (
-                    <span style={styles.errorText}>
+                    <span className="errorText">
                       {this.props.location.state.error.message}
                     </span>
                   )}

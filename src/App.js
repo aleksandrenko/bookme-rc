@@ -13,7 +13,7 @@ import QRCodeReaderComponent from './components/QRCodeReader/QRCodeReader';
 
 class App extends Component {
   render() {
-    const { location } = this.props;
+    const { location, history } = this.props;
 
     return (
       <div className="app">
@@ -26,8 +26,9 @@ class App extends Component {
             exact
             path="/logout"
             render={() => {
-              console.log('log out');
-              // history.push('login');
+              localStorage.setItem('token', null);
+              history.replace('/login');
+              return null;
             }}
           />
           <Route component={NotFound} />

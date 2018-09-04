@@ -4,11 +4,12 @@
   right: 20px;
   height: 80px;
   width: 80px;
+  display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
   background-color: #424143;
-  border-radius: 40%;
-  display: flex;
+  box-shadow: 0px 0px 6px #424143;
 }
 
 .qr-code-button .image {

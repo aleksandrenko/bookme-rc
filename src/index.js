@@ -9,7 +9,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import logger from './utils/logger';
-import ErrorBoundry from './components/ErrorBoundry/ErrorBoundry';
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
+
 // import registerServiceWorker from './registerServiceWorker';
 // registerServiceWorker();
 
@@ -17,11 +18,11 @@ const appRenderProfiler = logger.startTimer();
 
 ReactDOM.render(
   <BrowserRouter>
-    <ErrorBoundry>
+    <ErrorBoundary>
       <ApolloProvider client={client}>
         <App />
       </ApolloProvider>
-    </ErrorBoundry>
+    </ErrorBoundary>
   </BrowserRouter>,
   document.getElementById('root')
 );

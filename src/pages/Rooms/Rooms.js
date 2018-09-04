@@ -54,7 +54,7 @@ class RoomGroups extends React.Component {
                     childrenCollection="rooms"
                     labelKey="name"
                     hasArrow={true}
-                    hasCheckbox={true}
+                    hasCheckbox={false}
                     // checkboxLabel={{
                     //   on: '(book)',
                     //   off: '(unbook)'

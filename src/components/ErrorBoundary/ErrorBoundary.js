@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import apolloClient from '../../utils/apolloClient';
 
-class ErrorBoundry extends React.Component {
+class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     apolloClient.setExternalErrorHandler(err => {
@@ -19,4 +19,4 @@ class ErrorBoundry extends React.Component {
   }
 }
 
-export default withRouter(ErrorBoundry);
+export default withRouter(ErrorBoundary);

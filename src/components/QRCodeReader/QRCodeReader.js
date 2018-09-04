@@ -62,11 +62,9 @@ class QRCodeReaderComponent extends React.Component {
           legacyMode
           className="scanner"
         />
-        <input
-          type="button"
-          value="Submit QR Code"
-          onClick={this.openImageDialog}
-        />
+        <button className="submit_btn" onClick={this.openImageDialog}>
+          Submit QR Code
+        </button>
       </div>
     );
   }

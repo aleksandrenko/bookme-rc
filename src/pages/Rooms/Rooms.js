@@ -54,11 +54,6 @@ class RoomGroups extends React.Component {
                     childrenCollection="rooms"
                     labelKey="name"
                     hasArrow={true}
-                    hasCheckbox={false}
-                    // checkboxLabel={{
-                    //   on: '(book)',
-                    //   off: '(unbook)'
-                    // }}
                     onItemClick={item => {
                       console.log('clicked', item);
                       history.push(`/room/${item.emailKey}`);

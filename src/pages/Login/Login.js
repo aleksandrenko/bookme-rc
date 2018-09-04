@@ -5,6 +5,7 @@ import gql from 'graphql-tag';
 import QUERY from './Query.graphql';
 
 import './styles.css';
+import LoadIndicator from '../../components/LoadIndicatator/LoadIndicator';
 
 const LOGIN_MUTATION = gql(QUERY);
 
@@ -77,7 +78,10 @@ class Login extends React.Component {
                   type="password"
                   placeholder="Password"
                   onChange={password =>
-                    this.setState({ ...state, password: password.target.value })
+                    this.setState({
+                      ...state,
+                      password: password.target.value
+                    })
                   }
                   value={state.password}
                 />
@@ -113,11 +117,7 @@ class Login extends React.Component {
                   Login
                 </button>
 
-                {/* {state.submitting && (
-                    <View style={styles.loadIndicator}>
-                      <ActivityIndicator size="large" color="#39c2d7" />
-                    </View>
-                  )} */}
+                <LoadIndicator visible={this.state.submitting} />
               </div>
 
               <div className="errorView">

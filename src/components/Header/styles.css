@@ -60,12 +60,14 @@
 
 .header .menu {
   background: #fff;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 5px 8px rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 75px;
   right: 10px;
   border-radius: 5px;
   color: #666;
+  z-index: 100;
+  border: 2px solid #77ced7;
 }
 
 .header .menu ul {
@@ -87,12 +89,12 @@
 .header .menu::after {
   content: '';
   position: absolute;
-  top: -7px;
+  top: -9px;
   right: 10px;
   width: 0;
   height: 0;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
 
-  border-bottom: 7px solid #fff;
+  border-bottom: 7px solid #77ced7;
 }

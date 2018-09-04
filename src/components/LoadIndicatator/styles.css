@@ -1,0 +1,61 @@
+.loadIndicator.visible {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.loadIndicator {
+  pointer-events: none;
+  transition: opacity 0.5s;
+  opacity: 0;
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.loadIndicator .loadIndicationsWrapper {
+  display: flex;
+  height: 36px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadIndicator .loadingText {
+  padding-top: 12px;
+  color: #eee;
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+.loadIndicator .lds-dual-ring {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+
+.loadIndicator .lds-dual-ring:after {
+  content: ' ';
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

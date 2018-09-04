@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles.css';
+import LoadIndicator from '../LoadIndicatator/LoadIndicator';
 
 export default props => {
   const { loading, error, networkStatus, children, data } = props;
@@ -13,9 +14,7 @@ export default props => {
     if (loading)
       return (
         <div className="imageBackgroundStyles">
-          <div className="centeredContainer">
-            <b className="loadingText">Loading data ...</b>
-          </div>
+          <LoadIndicator visible={true} text="Loading data" />
         </div>
       );
 

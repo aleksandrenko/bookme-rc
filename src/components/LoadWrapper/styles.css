@@ -5,11 +5,6 @@
   margin: 30px;
 }
 
-.loadingText {
-  padding-top: 7px;
-  font-size: 12px;
-}
-
 .imageBackgroundStyles {
   display: flex;
   flex: 1;

@@ -43,7 +43,7 @@ class Room extends React.Component {
   }
 
   handleChildClick(array, item) {
-    array[item.hour.startTime] = item;
+    array[item.name] = item;
     console.log(array);
     this.setState({ dirtySlots: array });
   }

@@ -33,7 +33,8 @@ class App extends Component {
           />
           <Route component={NotFound} />
         </Switch>
-        {location.pathname !== '/login' && <QRCodeReaderComponent />}
+        {location.pathname !== '/login' &&
+          !location.pathname.startsWith('/room/') && <QRCodeReaderComponent />}
       </div>
     );
   }

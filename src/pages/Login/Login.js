@@ -8,12 +8,6 @@ import './styles.css';
 
 const LOGIN_MUTATION = gql(QUERY);
 
-const styles = {
-  login: {},
-  loginPanel: {},
-  input: {}
-};
-
 class Login extends React.Component {
   constructor() {
     super();
@@ -26,6 +20,11 @@ class Login extends React.Component {
       submitting: false,
       error: null
     };
+
+    //for browser with autofill component need to rerender to enable the submit button
+    setTimeout(() => {
+      this.forceUpdate();
+    }, 10);
   }
 
   render() {
@@ -66,6 +65,7 @@ class Login extends React.Component {
                   onChange={username => {
                     username &&
                       localStorage.setItem('username', username.target.value);
+
                     this.setState({
                       ...state,
                       username: username.target.value
@@ -103,8 +103,6 @@ class Login extends React.Component {
                     login({
                       variables: credentials,
                       updateQuery: data => {
-                        // Uncomment if you want to see the token in the console
-                        // console.log(data);
                         localStorage.setItem('credentials', credentials);
                       }
                     });
@@ -112,12 +110,6 @@ class Login extends React.Component {
                 >
                   Login
                 </button>
-
-                {/* {state.submitting && (
-                    <View style={styles.loadIndicator}>
-                      <ActivityIndicator size="large" color="#39c2d7" />
-                    </View>
-                  )} */}
               </div>
 
               <div className="errorView">

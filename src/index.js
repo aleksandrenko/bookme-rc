@@ -10,8 +10,6 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import logger from './utils/logger';
 import ErrorBoundry from './components/ErrorBoundry/ErrorBoundry';
-// import registerServiceWorker from './registerServiceWorker';
-// registerServiceWorker();
 
 const appRenderProfiler = logger.startTimer();
 

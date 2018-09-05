@@ -11,9 +11,6 @@ import './index.css';
 import logger from './utils/logger';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
-// import registerServiceWorker from './registerServiceWorker';
-// registerServiceWorker();
-
 const appRenderProfiler = logger.startTimer();
 
 ReactDOM.render(

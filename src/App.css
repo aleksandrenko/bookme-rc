@@ -13,3 +13,68 @@
   display: flex;
   flex-direction: column;
 }
+
+.transition-wrapper .transition-item {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.transition-item {
+  transition: transform 0.5s;
+}
+
+.transition-push.transition-appear {
+  transform: translate3d(100%, 0, 0);
+}
+
+.transition-pop.transition-appear {
+  transform: translate3d(-100%, 0, 0);
+}
+
+/* .transition-appear.transition-appear-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+} */
+
+.transition-appear.transition-appear-active {
+  transform: translate3d(0, 0, 0);
+}
+
+/* .transition-push.transition-leave {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+} */
+
+.transition-leave {
+  transform: translate3d(0, 0, 0);
+}
+
+.transition-push.transition-leave.transition-leave-active {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.transition-pop.transition-leave.transition-leave-active {
+  transform: translate3d(100%, 0, 0);
+}
+
+/* .transition-appear {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+
+.transition-appear.transition-appear-active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.transition-leave {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.transition-leave.transition-leave-active {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+} */

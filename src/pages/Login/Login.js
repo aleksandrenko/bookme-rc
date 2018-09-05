@@ -6,6 +6,7 @@ import QUERY from './Query.graphql';
 
 import './styles.css';
 import LoadIndicator from '../../components/LoadIndicatator/LoadIndicator';
+import TransitionItem from '../../components/TransitionItem/TransitionItem';
 
 const LOGIN_MUTATION = gql(QUERY);
 
@@ -30,7 +31,11 @@ class Login extends React.Component {
   }
 
   render() {
-    const { history } = this.props;
+    const { history, location } = this.props;
+
+    location.state &&
+      location.state.logout &&
+      localStorage.setItem('token', null);
 
     return (
       <Mutation
@@ -56,79 +61,81 @@ class Login extends React.Component {
       >
         {login => {
           const state = this.state;
+          const errorFromHistoryPush =
+            this.props.location.state && this.props.location.state.error;
+          const error =
+            state.error ||
+            (errorFromHistoryPush && errorFromHistoryPush.message);
 
           return (
-            <div className="login">
-              <div className="loginPanel">
-                <input
-                  className="input"
-                  placeholder="Username@epam.com"
-                  value={state.username}
-                  onChange={username => {
-                    username &&
-                      localStorage.setItem('username', username.target.value);
-                    this.setState({
-                      ...state,
-                      username: username.target.value
-                    });
-                  }}
-                />
-                <input
-                  className="input"
-                  type="password"
-                  placeholder="Password"
-                  onChange={password =>
-                    this.setState({
-                      ...state,
-                      password: password.target.value
-                    })
-                  }
-                  value={state.password}
-                />
+            <TransitionItem>
+              <div className="login">
+                <div className="loginPanel">
+                  <input
+                    className="input"
+                    placeholder="Username@epam.com"
+                    value={state.username}
+                    onChange={username => {
+                      username &&
+                        localStorage.setItem('username', username.target.value);
+                      this.setState({
+                        ...state,
+                        username: username.target.value
+                      });
+                    }}
+                  />
+                  <input
+                    className="input"
+                    type="password"
+                    placeholder="Password"
+                    onChange={password =>
+                      this.setState({
+                        ...state,
+                        password: password.target.value
+                      })
+                    }
+                    value={state.password}
+                  />
 
-                <button
-                  className="button"
-                  title="Login"
-                  disabled={
-                    this.state.submitting ||
-                    (!state.password || !state.username)
-                  }
-                  onClick={() => {
-                    this.setState({
-                      ...state,
-                      submitting: true
-                    });
+                  <button
+                    className="button"
+                    title="Login"
+                    disabled={
+                      this.state.submitting ||
+                      (!state.password || !state.username)
+                    }
+                    onClick={() => {
+                      this.setState({
+                        ...state,
+                        submitting: true
+                      });
 
-                    const credentials = {
-                      username: state.username,
-                      password: state.password
-                    };
+                      const credentials = {
+                        username: state.username,
+                        password: state.password
+                      };
 
-                    login({
-                      variables: credentials,
-                      updateQuery: data => {
-                        // Uncomment if you want to see the token in the console
-                        // console.log(data);
-                        localStorage.setItem('credentials', credentials);
-                      }
-                    });
-                  }}
-                >
-                  Login
-                </button>
+                      login({
+                        variables: credentials,
+                        updateQuery: data => {
+                          // Uncomment if you want to see the token in the console
+                          // console.log(data);
+                          localStorage.setItem('credentials', credentials);
+                        }
+                      });
+                    }}
+                  >
+                    Login
+                  </button>
 
-                <LoadIndicator visible={this.state.submitting} />
+                  <LoadIndicator visible={this.state.submitting} />
+                </div>
+
+                <div className="errorView">
+                  {error && <span className="errorText">{error}</span>}
+                </div>
               </div>
-
-              <div className="errorView">
-                {this.props.location.state &&
-                  this.props.location.state.error && (
-                    <span className="errorText">
-                      {this.props.location.state.error.message}
-                    </span>
-                  )}
-              </div>
-            </div>
+            </TransitionItem>
           );
         }}
       </Mutation>

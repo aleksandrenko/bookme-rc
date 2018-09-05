@@ -1,22 +1,9 @@
-.room {
-  background-image: url('../../assets/images/bg.png');
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.room .details {
+.details {
   display: flex;
   height: 100px;
   background: #fff;
 }
-
-.room .roomImage {
+.roomImage {
   width: 100px;
   height: 80px;
   background-color: #eee;
@@ -25,33 +12,33 @@
   border: 0.5px solid #ccc;
 }
 
-.room .info {
+.info {
   flex-direction: column;
   margin-top: 5px;
   font-weight: bold;
 }
 
-.room .info .prop {
+.info .prop {
   margin: 5px 0;
 }
 
-.room .information {
+.information {
   display: flex;
   flex-direction: column;
 }
 
-.room .slots {
+.slots {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.room .slots .scrollable-wrapper {
+.slots .scrollable-wrapper {
   flex: 1;
   position: relative;
 }
 
-.room .slots .scrollable {
+.slots .scrollable {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -60,7 +47,7 @@
   overflow: auto;
 }
 
-.room .sectionHeader {
+.sectionHeader {
   padding: 10px;
   padding-top: 19px;
   padding-bottom: 7px;

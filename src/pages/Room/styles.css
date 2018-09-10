@@ -12,6 +12,17 @@
   border: 0.5px solid #ccc;
 }
 
+.noSlots {
+  height: 52px;
+  padding-left: 10px;
+  border-bottom: solid 1px #ccc;
+  text-transform: capitalize;
+  line-height: 52px;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  color: #666;
+}
+
 .info {
   flex-direction: column;
   margin-top: 5px;
@@ -47,8 +58,8 @@
   overflow: auto;
 }
 
-.room .slots .scrollable .item input[type='checkbox'] {
-  margin-right: 16px;
+.slots .item input[type='checkbox'] {
+  margin-right: 10px;
 }
 
 .sectionHeader {
@@ -64,11 +75,11 @@
   color: #666;
 }
 
-.room .actionButtons {
+.actionButtons {
   display: flex;
 }
 
-.room .actionButtons button {
+.actionButtons button {
   border: 0;
   text-align: center;
   color: #333;
@@ -76,12 +87,12 @@
   line-height: 46px;
 }
 
-.room .actionButtons .submitButton {
+.actionButtons .submitButton {
   flex: 3;
   background: #cadc49;
 }
 
-.room .actionButtons .cancelButton {
+.actionButtons .cancelButton {
   flex: 2;
   background: #aaa;
 }

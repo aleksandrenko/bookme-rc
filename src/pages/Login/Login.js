@@ -116,8 +116,6 @@ class Login extends React.Component {
                       login({
                         variables: credentials,
                         updateQuery: data => {
-                          // Uncomment if you want to see the token in the console
-                          // console.log(data);
                           localStorage.setItem('credentials', credentials);
                         }
                       });

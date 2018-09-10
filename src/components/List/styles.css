@@ -79,14 +79,15 @@
 }
 
 .list .checkboxLabel {
-  flex-basis: 100%;
-  width: fit-content;
-  margin-right: 30px;
+  margin-right: 20px;
   margin-left: 30px;
   color: #666;
   font-size: 14px;
   text-align: right;
-  text-transform: initial;
+}
+
+.list .value {
+  flex: 1;
 }
 
 .list .checkboxDisabled {

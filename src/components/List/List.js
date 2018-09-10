@@ -1,17 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 import './styles.css';
 
 class List extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      selectedItems: {}
-    };
-  }
-
   _getSectionedItems = props => {
     const { data = [], childrenCollection } = props;
 
@@ -38,49 +30,26 @@ class List extends React.Component {
         ? `${classNames} checkboxDisabled`
         : classNames;
 
-      const selectedItemKey = item.id;
-      const currentItemStatus = this.state.selectedItems[selectedItemKey];
-
       return (
         <li
           className={classNames}
-          key={`item-${selectedItemKey}`}
+          key={`item-${item.id}`}
           disabled={item.disabled}
           onClick={() => {
-            const itemCopy = Object.assign({}, item);
-
-            if (hasCheckbox) {
-              const changedSelectedItems = Object.assign(
-                {},
-                this.state.selectedItems
-              );
-              const newCheckboxState = !currentItemStatus;
-              changedSelectedItems[selectedItemKey] = newCheckboxState;
-
-              this.setState({
-                selectedItems: changedSelectedItems
-              });
-
-              itemCopy.checked = newCheckboxState;
-            }
-
-            onItemClick && onItemClick(itemCopy);
+            onItemClick && onItemClick(item);
           }}
         >
           {hasCheckbox && (
-            <input
-              type="checkbox"
-              checked={currentItemStatus || item.checked}
-              disabled
-            />
+            <Fragment>
+              <input type="checkbox" checked={item.checked} disabled />
+              <div className="checkmark" />
+            </Fragment>
           )}
-          {hasCheckbox && <div className="checkmark" />}
-          {item[labelKey]}
+
+          <span className="value">{item[labelKey]}</span>
+
           {checkboxLabel && (
-            <span className="checkboxLabel">
-              {currentItemStatus === true && checkboxLabel.on}
-              {currentItemStatus === false && checkboxLabel.off}
-            </span>
+            <span className="checkboxLabel">{item[checkboxLabel]}</span>
           )}
         </li>
       );
@@ -116,10 +85,7 @@ List.propTypes = {
   onItemClick: PropTypes.func,
   hasArrow: PropTypes.bool,
   hasCheckbox: PropTypes.bool,
-  checkboxLabel: PropTypes.objectOf({
-    on: PropTypes.string,
-    off: PropTypes.string
-  })
+  checkboxLabel: PropTypes.string
 };
 
 export default List;

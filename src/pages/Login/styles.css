@@ -54,6 +54,7 @@
   height: 10px;
   max-width: 85%;
   word-break: break-all;
+  margin-top: 20px;
 }
 
 .login .errorText {

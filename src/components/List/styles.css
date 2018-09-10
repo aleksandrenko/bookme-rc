@@ -19,6 +19,7 @@
 }
 
 .list .item {
+  position: relative;
   display: flex;
   align-items: center;
   height: 52px;
@@ -29,6 +30,45 @@
   background-color: rgba(255, 255, 255, 0.5);
   font-size: 18px;
   color: #666;
+  user-select: none;
+}
+
+.list .item input {
+  visibility: hidden;
+}
+
+.list .checkmark {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  height: 20px;
+  width: 20px;
+  border: 2px solid #666;
+  border-radius: 2px;
+}
+
+.list .item input:checked ~ .checkmark {
+  background-color: #666;
+}
+
+.list .item .checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.list .item input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.list .item .checkmark:after {
+  top: -1px;
+  left: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
 
 .list .item.arrow-right {
@@ -47,4 +87,9 @@
   font-size: 14px;
   text-align: right;
   text-transform: initial;
+}
+
+.list .checkboxDisabled {
+  opacity: 0.5;
+  background: rgba(0, 0, 0, 0.05);
 }

@@ -38,19 +38,28 @@ class Room extends React.Component {
     super();
     this.state = {
       modalOpen: false,
-      dirtySlots: {}
+      dirtySlots: {},
+      agregatedData: {} // Do I need this!?
     };
   }
 
   handleChildClick(array, item) {
-    array[item.name] = item;
-    console.log(array);
-    this.setState({ dirtySlots: array });
+    const isSlotChangedfromUser = item.checked !== (item.bookedBy === '1');
+    if (isSlotChangedfromUser) {
+      array[item.name] = item;
+      this.setState({ dirtySlots: array });
+    }
+    console.log('isSlotChangedfromDB', isSlotChangedfromUser);
+    console.log('dirtySlots', array);
   }
 
+  renderModal = () => {
+    return <div>***</div>;
+  };
+
   render() {
-    const { loading, error, data, history, match } = this.props;
-    const { dirtySlots } = this.state;
+    const { history, match } = this.props;
+    const { dirtySlots, agregatedData, modalOpen } = this.state;
 
     const formatTimeHHMMA = d => {
       function z(n) {
@@ -64,7 +73,7 @@ class Room extends React.Component {
     const extractHour = date => formatTimeHHMMA(new Date(date));
 
     const touchedSlotsByUser = Object.assign({}, dirtySlots);
-    const hasChangesFromTheUser = !!Object.keys(dirtySlots).length;
+    const hasChangesFromTheUser = !!Object.keys(agregatedData).length;
 
     return (
       <Query
@@ -76,10 +85,26 @@ class Room extends React.Component {
             ? data.getRoom.appointmentSlots
             : [];
           const labaledSlotsData = rawSlotsData.map(slot => {
+            // console.log('slot', slot);
+            const isChecked = !!slot.bookedBy;
+            // console.log('isChecked', isChecked);
+            const isDisabled = !!data.getRoom.appointmentSlots.find(
+              item => item.id === slot.id
+            ).bookedBy;
+            const checkedByUser = Object.values(agregatedData).find(
+              item => item.id === slot.id
+            );
+            const isDirty =
+              checkedByUser &&
+              !!checkedByUser.bookedBy !== checkedByUser.checked;
+            // console.log(isDirty);
             const objWithLabel = {
               name: `${extractHour(slot.hour.startTime)} - ${extractHour(
                 slot.hour.endTime
-              )}`
+              )}`,
+              checked: isChecked,
+              disabled: isDisabled
+              // isDirty: !!bookedBy !== !!UI checked
             };
             const labaledSlot = Object.assign(objWithLabel, slot);
             return labaledSlot;
@@ -112,6 +137,10 @@ class Room extends React.Component {
                         hasCheckbox
                         childrenCollection="children"
                         labelKey="name"
+                        // checkboxLabel={{
+                        //   on: 'book',
+                        //   off: 'unbook'
+                        // }}
                         onItemClick={item => {
                           this.handleChildClick(touchedSlotsByUser, item);
                         }}
@@ -131,12 +160,13 @@ class Room extends React.Component {
                     <button
                       className="cancelButton"
                       title="Cancel"
-                      onClick={() => this.setState({ dirtySlots: {} })}
+                      onClick={() => this.setState({ agregatedData: {} })}
                     >
                       Cancel
                     </button>
                   </div>
                 )}
+                {modalOpen && this.renderModal()}
               </LoadWrapper>
             </div>
           );

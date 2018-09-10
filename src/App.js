@@ -19,8 +19,6 @@ class App extends Component {
       location.pathname !== '/login' &&
       location.pathname.substr(0, 5) !== '/room';
 
-    console.log(location.pathname);
-
     return (
       <div className="app">
         <PageTransition

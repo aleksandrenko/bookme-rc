@@ -56,7 +56,6 @@ class RoomGroups extends React.Component {
                     labelKey="name"
                     hasArrow={true}
                     onItemClick={item => {
-                      console.log('clicked', item);
                       history.push(`/room/${item.emailKey}`);
                     }}
                   />

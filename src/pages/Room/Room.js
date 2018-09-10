@@ -34,7 +34,6 @@ const GET_ROOM = gql`
 class Room extends React.Component {
   render() {
     const { history, match } = this.props;
-    console.log('render');
 
     return (
       <Query

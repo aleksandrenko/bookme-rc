@@ -19,7 +19,6 @@ class QRCodeReaderComponent extends React.Component {
   handleScan(result) {
     if (result) {
       const roomEmailKey = `/room/${result}`;
-      console.log(roomEmailKey);
       this.setState({ showCamera: false });
       this.props.history.push(roomEmailKey);
     }

@@ -4,7 +4,6 @@ const rewireReactHotLoader = require('react-app-rewire-hot-loader');
 module.exports = function override (config, env) {
   if(env === "development") {
     env.BROWSER = 'none';
-    console.log('development');
   }
   if(env === "production") {
     console.log('production');

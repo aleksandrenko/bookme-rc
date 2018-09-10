@@ -4,6 +4,7 @@ import LoadWrapper from '../../components/LoadWrapper/LoadWrapper';
 import Header from '../../components/Header/Header';
 import List from '../../components/List/List';
 import TransitionItem from '../../components/TransitionItem/TransitionItem';
+import Popup from '../../components/Popup/Popup';
 
 const formatTimeHHMMA = d => {
   function z(n) {
@@ -17,6 +18,11 @@ const formatTimeHHMMA = d => {
 };
 const extractHour = date => formatTimeHHMMA(new Date(date));
 const isSlotBookedByMe = slot => slot.bookedBy === '1';
+
+const children = {
+  booking: ['12:30 PM - 13:30 PM', '14:00 PM - 14:30 PM'],
+  unbooking: ['13:30 PM - 14:00 PM']
+};
 
 class RoomWithData extends React.Component {
   constructor() {
@@ -43,8 +49,8 @@ class RoomWithData extends React.Component {
     });
   };
 
-  renderModal = () => {
-    return <div>***</div>;
+  closePopup = () => {
+    this.setState({ modalOpen: false });
   };
 
   render() {
@@ -117,7 +123,7 @@ class RoomWithData extends React.Component {
               <button
                 className="submitButton"
                 title="Submit"
-                onClick={() => console.log('click')}
+                onClick={() => this.setState({ modalOpen: true })}
               >
                 Submit
               </button>
@@ -133,7 +139,11 @@ class RoomWithData extends React.Component {
             </div>
           )}
 
-          {this.state.modalOpen && this.renderModal()}
+          {this.state.modalOpen && (
+            <div className="popupWrapper">
+              <Popup children={children} onClose={() => this.closePopup()} />
+            </div>
+          )}
         </LoadWrapper>
       </TransitionItem>
     );

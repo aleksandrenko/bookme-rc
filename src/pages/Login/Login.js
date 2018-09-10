@@ -22,19 +22,20 @@ class Login extends React.Component {
       submitting: false,
       error: null
     };
-
-    //for browser with autofill component need to rerender to enable the submit button
-    setTimeout(() => {
-      this.forceUpdate();
-    }, 10);
   }
 
-  render() {
-    const { history, location } = this.props;
+  getSnapshotBeforeUpdate = () => {
+    const { location } = this.props;
 
     location.state &&
       location.state.logout &&
       localStorage.setItem('token', null);
+
+    return null;
+  };
+
+  render() {
+    const { history } = this.props;
 
     return (
       <Mutation
@@ -77,6 +78,7 @@ class Login extends React.Component {
                     onChange={username => {
                       username &&
                         localStorage.setItem('username', username.target.value);
+
                       this.setState({
                         ...state,
                         username: username.target.value
@@ -127,9 +129,7 @@ class Login extends React.Component {
                   <LoadIndicator visible={this.state.submitting} />
                 </div>
 
-                <div className="errorView">
-                  {error && <span className="errorText">{error}</span>}
-                </div>
+                {error && <div className="errorView">{error}</div>}
               </div>
             </TransitionItem>
           );

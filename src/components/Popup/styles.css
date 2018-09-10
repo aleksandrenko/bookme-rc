@@ -2,7 +2,8 @@
   width: 90%;
   border-radius: 5px;
   background: #fff;
-  box-shadow: 0px 0px 5px #000;
+  box-shadow: 0 0 5px #000;
+  overflow: hidden;
 }
 
 .popup h1 {
@@ -22,16 +23,21 @@
   font-size: 14px;
 }
 
-.popup .submitButton {
-  border-bottom-left-radius: 5px;
-  background-color: '#CADC49';
+.popup .actionButtons {
+  border-top: 1px solid #ccc;
 }
 
-.popup .cancelButton {
-  border-bottom-right-radius: 5px;
+.popup ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .popup .slot {
   padding: 15px;
   border-bottom: 1px solid #ccc;
+}
+
+.slot:last-child {
+  border-bottom: none;
 }

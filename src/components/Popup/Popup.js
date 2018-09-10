@@ -12,25 +12,29 @@ class Popup extends React.Component {
         {children.booking.length && (
           <Fragment>
             <h4>Book slots:</h4>
-            {children.booking.map(item => {
-              return (
-                <div className="slot" key={item}>
-                  {item}
-                </div>
-              );
-            })}
+            <ul>
+              {children.booking.map(item => {
+                return (
+                  <li className="slot" key={item}>
+                    {item}
+                  </li>
+                );
+              })}
+            </ul>
           </Fragment>
         )}
         {children.unbooking.length && (
           <Fragment>
             <h4>Unbook slots:</h4>
-            {children.unbooking.map(item => {
-              return (
-                <div className="slot" key={item}>
-                  {item}
-                </div>
-              );
-            })}
+            <ul>
+              {children.unbooking.map(item => {
+                return (
+                  <li className="slot" key={item}>
+                    {item}
+                  </li>
+                );
+              })}
+            </ul>
           </Fragment>
         )}
         <div className="actionButtons">

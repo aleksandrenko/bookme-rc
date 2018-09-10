@@ -5,12 +5,17 @@ import apolloClient from '../../utils/apolloClient';
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
+
     apolloClient.setExternalErrorHandler(err => {
+      const history = this.props.history;
+
       if (err.type === 'ERROR' && err.code === 401)
-        this.props.history.push({
-          pathname: '/login',
-          state: { error: err }
-        });
+        if (history.location.pathname !== '/login') {
+          history.push({
+            pathname: '/login',
+            state: { error: err }
+          });
+        }
     });
   }
 

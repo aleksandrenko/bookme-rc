@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import qrCodeScanImage from '../../assets/images/qr.png';
-import styles from './styles.css';
+import './styles.css';
 
 class QRCameraButton extends React.Component {
   render() {

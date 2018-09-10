@@ -17,7 +17,7 @@ class App extends Component {
     const { location, history } = this.props;
     const showQRScannerButton =
       location.pathname !== '/login' &&
-      location.pathname.substr(0, 5) !== '/room';
+      location.pathname.substr(0, 6) !== '/room/';
 
     return (
       <div className="app">

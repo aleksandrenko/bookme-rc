@@ -51,19 +51,16 @@
 }
 
 .login .errorView {
-  height: 10px;
+  min-height: 20px;
   max-width: 85%;
-  word-break: break-all;
+  word-break: break-word;
   margin-top: 20px;
-}
-
-.login .errorText {
-  flex: 1;
   background: rgba(255, 0, 0, 0.8);
   padding: 13px 15px;
   border-radius: 3px;
   color: #fff;
   font-size: 90%;
+  text-align: center;
 }
 
 .login .errorText h4 {

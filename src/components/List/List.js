@@ -23,12 +23,12 @@ class List extends React.Component {
         onItemClick,
         hasArrow,
         hasCheckbox,
-        checkboxLabel
+        checkboxLabel,
+        isHighlighted
       } = props;
-      let classNames = `item ${hasArrow ? 'arrow-right' : ''}`;
-      classNames = item.disabled
-        ? `${classNames} checkboxDisabled`
-        : classNames;
+      let classNames = `item ${hasArrow ? 'arrow-right' : ''} ${
+        item.disabled ? 'disabled' : ''
+      } ${item[isHighlighted] ? 'highlighted' : ''}`;
 
       return (
         <li
@@ -85,7 +85,8 @@ List.propTypes = {
   onItemClick: PropTypes.func,
   hasArrow: PropTypes.bool,
   hasCheckbox: PropTypes.bool,
-  checkboxLabel: PropTypes.string
+  checkboxLabel: PropTypes.string,
+  isHighlighted: PropTypes.string
 };
 
 export default List;

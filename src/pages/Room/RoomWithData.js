@@ -62,7 +62,7 @@ class RoomWithData extends React.Component {
 
     const aggregatedSlots = rawSlotsData.map(rawSlot => {
       const slotCheckStatus = dirtySlots[rawSlot.id]
-        ? dirtySlots[rawSlot.id].checked
+        ? !!dirtySlots[rawSlot.id].checked
         : !!rawSlot.bookedBy;
       const isItemStatusChangedInTheUI = slotCheckStatus !== !!rawSlot.bookedBy;
       const contextLabel =
@@ -70,9 +70,10 @@ class RoomWithData extends React.Component {
 
       const additionalSlotData = {
         checked: slotCheckStatus,
-        isDisabled: !isSlotBookedByMe(rawSlot), //when booked by !me
+        isDisabled: !isSlotBookedByMe(rawSlot),
         isDirty: isItemStatusChangedInTheUI,
         contextLabel,
+        highlighted: isItemStatusChangedInTheUI,
         name: `${extractHour(rawSlot.hour.startTime)} - ${extractHour(
           rawSlot.hour.endTime
         )}`
@@ -113,6 +114,7 @@ class RoomWithData extends React.Component {
                   labelKey="name"
                   checkboxLabel="contextLabel"
                   onItemClick={this.handleChildClick}
+                  isHighlighted="highlighted"
                 />
               </div>
             </div>
@@ -139,11 +141,12 @@ class RoomWithData extends React.Component {
             </div>
           )}
 
-          {this.state.modalOpen && (
-            <div className="popupWrapper">
-              <Popup children={children} onClose={() => this.closePopup()} />
-            </div>
-          )}
+          {this.state.modalOpen ||
+            (true && (
+              <div className="popupWrapper">
+                <Popup children={children} onClose={() => this.closePopup()} />
+              </div>
+            ))}
         </LoadWrapper>
       </TransitionItem>
     );

@@ -31,6 +31,7 @@
   font-size: 18px;
   color: #666;
   user-select: none;
+  transition: background-color 0.2s;
 }
 
 .list .item input {

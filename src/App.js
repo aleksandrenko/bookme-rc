@@ -15,6 +15,11 @@ import PageTransition from 'react-router-page-transition';
 class App extends Component {
   render() {
     const { location, history } = this.props;
+    const showQRScannerButton =
+      location.pathname !== '/login' &&
+      location.pathname.substr(0, 5) !== '/room';
+
+    console.log(location.pathname);
 
     return (
       <div className="app">
@@ -30,7 +35,7 @@ class App extends Component {
             <Route component={NotFound} />
           </Switch>
         </PageTransition>
-        {location.pathname !== '/login' && <QRCodeReaderComponent />}
+        {showQRScannerButton && <QRCodeReaderComponent />}
       </div>
     );
   }

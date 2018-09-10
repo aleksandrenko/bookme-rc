@@ -24,7 +24,7 @@ class Header extends Component {
   };
 
   _navigateToLogout = () => {
-    this.props.history.push('/logout');
+    this.props.history.push('/login', { logout: true });
   };
 
   render() {

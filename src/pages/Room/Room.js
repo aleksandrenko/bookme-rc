@@ -8,6 +8,7 @@ import List from '../../components/List/List';
 import { withRouter } from 'react-router-dom';
 
 import './styles.css';
+import TransitionItem from '../../components/TransitionItem/TransitionItem';
 
 const GET_ROOM = gql`
   query getRoom($emailKey: String!, $before: String, $after: String) {
@@ -111,7 +112,7 @@ class Room extends React.Component {
           });
 
           return (
-            <div className="room">
+            <TransitionItem>
               <Header
                 title="Room Name"
                 subTitle="Room Floor"
@@ -168,7 +169,7 @@ class Room extends React.Component {
                 )}
                 {modalOpen && this.renderModal()}
               </LoadWrapper>
-            </div>
+            </TransitionItem>
           );
         }}
       </Query>

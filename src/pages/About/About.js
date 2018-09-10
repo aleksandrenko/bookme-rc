@@ -2,8 +2,9 @@ import React, { Fragment } from 'react';
 import Header from '../../components/Header/Header';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import TransitionItem from '../../components/TransitionItem/TransitionItem';
 
-const TextContainer = styled.p`
+const TextContainer = styled.div`
   padding: 25px;
   background: #fff;
   margin: 0;
@@ -33,7 +34,7 @@ const Paragraph = styled.p`
 class About extends React.Component {
   render() {
     return (
-      <Fragment>
+      <TransitionItem>
         <Header hasBackButton={true} title="About" showAboutMenuItem={false} />
 
         <ScrollWrapper>
@@ -99,7 +100,7 @@ class About extends React.Component {
             </TextContainer>
           </Scrollable>
         </ScrollWrapper>
-      </Fragment>
+      </TransitionItem>
     );
   }
 }

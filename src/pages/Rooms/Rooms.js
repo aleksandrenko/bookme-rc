@@ -6,6 +6,7 @@ import { Query } from 'react-apollo';
 import LoadWrapper from '../../components/LoadWrapper/LoadWrapper';
 import Header from '../../components/Header/Header';
 import List from '../../components/List/List';
+import TransitionItem from '../../components/TransitionItem/TransitionItem';
 
 const GET_FLOORS = gql`
   query floors($pageSize: Int, $offset: Int) {
@@ -44,7 +45,7 @@ class RoomGroups extends React.Component {
       >
         {({ loading, error, data, fetchMore, refetch }) => {
           return (
-            <Fragment>
+            <TransitionItem>
               <Header title="BookME" showLoading={loading} history={history} />
 
               <LoadWrapper loading={loading} error={error} data={data}>
@@ -61,7 +62,7 @@ class RoomGroups extends React.Component {
                   />
                 </Fragment>
               </LoadWrapper>
-            </Fragment>
+            </TransitionItem>
           );
         }}
       </Query>

@@ -5,6 +5,7 @@ import { Query } from 'react-apollo';
 import LoadWrapper from '../../components/LoadWrapper/LoadWrapper';
 import Header from '../../components/Header/Header';
 import List from '../../components/List/List';
+import Popup from '../../components/Popup/Popup';
 import { withRouter } from 'react-router-dom';
 
 import './styles.css';
@@ -33,6 +34,11 @@ const GET_ROOM = gql`
   }
 `;
 
+const children = {
+  booking: ['12:30 PM - 13:30 PM', '14:00 PM - 14:30 PM'],
+  unbooking: ['13:30 PM - 14:00 PM']
+};
+
 class Room extends React.Component {
   constructor() {
     super();
@@ -49,12 +55,20 @@ class Room extends React.Component {
       array[item.name] = item;
       this.setState({ dirtySlots: array });
     }
-    console.log('isSlotChangedfromDB', isSlotChangedfromUser);
-    console.log('dirtySlots', array);
+    // console.log('isSlotChangedfromDB', isSlotChangedfromUser);
+    // console.log('dirtySlots', array);
   }
 
-  renderModal = () => {
-    return <div>***</div>;
+  renderModal = children => {
+    return (
+      <div className="popupWrapper">
+        <Popup children={children} onClose={() => this.closePopup()} />
+      </div>
+    );
+  };
+
+  closePopup = () => {
+    this.setState({ modalOpen: false });
   };
 
   render() {
@@ -148,12 +162,12 @@ class Room extends React.Component {
                     </div>
                   </div>
                 </div>
-                {hasChangesFromTheUser && (
+                {true && (
                   <div className="actionButtons">
                     <button
                       className="submitButton"
                       title="Submit"
-                      onClick={() => console.log('click')}
+                      onClick={() => this.setState({ modalOpen: true })}
                     >
                       Submit
                     </button>
@@ -166,7 +180,7 @@ class Room extends React.Component {
                     </button>
                   </div>
                 )}
-                {modalOpen && this.renderModal()}
+                {modalOpen && this.renderModal(children)}
               </LoadWrapper>
             </div>
           );

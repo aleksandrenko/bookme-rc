@@ -98,3 +98,15 @@
   flex: 2;
   background: #aaa;
 }
+
+.popupWrapper {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}

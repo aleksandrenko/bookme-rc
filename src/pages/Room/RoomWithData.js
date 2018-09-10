@@ -141,12 +141,11 @@ class RoomWithData extends React.Component {
             </div>
           )}
 
-          {this.state.modalOpen ||
-            (true && (
-              <div className="popupWrapper">
-                <Popup children={children} onClose={() => this.closePopup()} />
-              </div>
-            ))}
+          {this.state.modalOpen && (
+            <div className="popupWrapper">
+              <Popup children={children} onClose={() => this.closePopup()} />
+            </div>
+          )}
         </LoadWrapper>
       </TransitionItem>
     );

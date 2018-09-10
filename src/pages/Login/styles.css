@@ -52,13 +52,19 @@
 
 .login .errorView {
   height: 10px;
-  flex-direction: row;
-  align-items: flex-start;
-  margin-left: 30px;
-  margin-right: 30px;
+  max-width: 85%;
+  word-break: break-all;
 }
 
 .login .errorText {
   flex: 1;
-  color: #ff0000;
+  background: rgba(255, 0, 0, 0.8);
+  padding: 13px 15px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 90%;
+}
+
+.login .errorText h4 {
+  margin: 0;
 }

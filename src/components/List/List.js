@@ -33,7 +33,10 @@ class List extends React.Component {
         hasCheckbox,
         checkboxLabel
       } = props;
-      const classNames = `item ${hasArrow ? 'arrow-right' : ''}`;
+      let classNames = `item ${hasArrow ? 'arrow-right' : ''}`;
+      classNames = item.disabled
+        ? `${classNames} checkboxDisabled`
+        : classNames;
 
       const selectedItemKey = item.id;
       const currentItemStatus = this.state.selectedItems[selectedItemKey];
@@ -42,6 +45,7 @@ class List extends React.Component {
         <li
           className={classNames}
           key={`item-${selectedItemKey}`}
+          disabled={item.disabled}
           onClick={() => {
             const itemCopy = Object.assign({}, item);
 
@@ -64,8 +68,13 @@ class List extends React.Component {
           }}
         >
           {hasCheckbox && (
-            <input type="checkbox" checked={currentItemStatus || false} />
+            <input
+              type="checkbox"
+              checked={currentItemStatus || item.checked}
+              disabled
+            />
           )}
+          {hasCheckbox && <div className="checkmark" />}
           {item[labelKey]}
           {checkboxLabel && (
             <span className="checkboxLabel">

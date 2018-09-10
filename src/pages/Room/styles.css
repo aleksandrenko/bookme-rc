@@ -47,6 +47,10 @@
   overflow: auto;
 }
 
+.room .slots .scrollable .item input[type='checkbox'] {
+  margin-right: 16px;
+}
+
 .sectionHeader {
   padding: 10px;
   padding-top: 19px;
@@ -58,4 +62,26 @@
   font-size: 14px;
   font-weight: bold;
   color: #666;
+}
+
+.room .actionButtons {
+  display: flex;
+}
+
+.room .actionButtons button {
+  border: 0;
+  text-align: center;
+  color: #333;
+  font-size: 18px;
+  line-height: 46px;
+}
+
+.room .actionButtons .submitButton {
+  flex: 3;
+  background: #cadc49;
+}
+
+.room .actionButtons .cancelButton {
+  flex: 2;
+  background: #aaa;
 }

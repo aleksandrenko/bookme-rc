@@ -10,12 +10,6 @@ import TransitionItem from '../../components/TransitionItem/TransitionItem';
 
 const LOGIN_MUTATION = gql(QUERY);
 
-const styles = {
-  login: {},
-  loginPanel: {},
-  input: {}
-};
-
 class Login extends React.Component {
   constructor() {
     super();
@@ -28,6 +22,11 @@ class Login extends React.Component {
       submitting: false,
       error: null
     };
+
+    //for browser with autofill component need to rerender to enable the submit button
+    setTimeout(() => {
+      this.forceUpdate();
+    }, 10);
   }
 
   render() {
@@ -96,7 +95,6 @@ class Login extends React.Component {
                     }
                     value={state.password}
                   />
-
                   <button
                     className="button"
                     title="Login"

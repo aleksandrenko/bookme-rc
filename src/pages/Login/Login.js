@@ -116,6 +116,8 @@ class Login extends React.Component {
                 </button>
               </div>
 
+              <LoadIndicator visible={this.state.submitting} />
+
               <div className="errorView">
                 {this.props.location.state &&
                   this.props.location.state.error && (

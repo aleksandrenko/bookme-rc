@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Header from '../../components/Header/Header';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';

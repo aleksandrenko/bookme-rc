@@ -3,7 +3,7 @@ import QRCameraButton from './QRCameraButton';
 import Header from '../Header/Header';
 import QrReader from 'react-qr-reader';
 import { withRouter } from 'react-router-dom';
-import styles from './styles.css';
+import './styles.css';
 
 class QRCodeReaderComponent extends React.Component {
   constructor(props) {

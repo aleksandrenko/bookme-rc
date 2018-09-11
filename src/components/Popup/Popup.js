@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -15,8 +16,8 @@ class Popup extends React.Component {
             <ul>
               {children.booking.map(item => {
                 return (
-                  <li className="slot" key={item}>
-                    {item}
+                  <li className="slot" key={item.startTime}>
+                    {item.name}
                   </li>
                 );
               })}
@@ -30,7 +31,7 @@ class Popup extends React.Component {
               {children.unbooking.map(item => {
                 return (
                   <li className="slot" key={item}>
-                    {item}
+                    {item.name}
                   </li>
                 );
               })}
@@ -41,7 +42,7 @@ class Popup extends React.Component {
           <button
             className="submitButton"
             title="Submit"
-            onClick={() => this.setState({ modalOpen: true })}
+            onClick={() => console.log('sendData')}
           >
             Confirm
           </button>
@@ -57,5 +58,10 @@ class Popup extends React.Component {
     );
   }
 }
+
+Popup.propTypes = {
+  children: PropTypes.object,
+  onClose: PropTypes.func.isRequired
+};
 
 export default Popup;

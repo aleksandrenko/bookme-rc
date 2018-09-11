@@ -116,7 +116,7 @@
 
 .popupTransition-enter.popupTransition-enter-active {
   opacity: 1;
-  transition: opacity 0.3s ease-in;
+  transition: opacity 0.2s ease-in;
 }
 
 .popupTransition-leave {
@@ -125,7 +125,7 @@
 
 .popupTransition-leave.popupTransition-leave-active {
   opacity: 0.01;
-  transition: opacity 0.3s ease-in;
+  transition: opacity 0.2s ease-in;
 }
 
 .actionButtonsTransition-enter {
@@ -134,7 +134,7 @@
 
 .actionButtonsTransition-enter.actionButtonsTransition-enter-active {
   opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .actionButtonsTransition-leave {
@@ -143,5 +143,5 @@
 
 .actionButtonsTransition-leave.actionButtonsTransition-leave-active {
   opacity: 0.01;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }

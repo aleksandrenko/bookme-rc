@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="12051837-d1bd-4566-9373-46ed282f7beb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Room/RoomWithData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Room/RoomWithData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Room/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Room/styles.css" afterDir="false" />
     </list>
@@ -49,8 +45,8 @@
       <file leaf-file-name="RoomWithData.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/Room/RoomWithData.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="146" column="34" lean-forward="true" selection-start-line="146" selection-start-column="34" selection-end-line="146" selection-end-column="34" />
+            <state relative-caret-position="376">
+              <caret line="153" column="40" selection-start-line="153" selection-start-column="40" selection-end-line="153" selection-end-column="40" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -61,8 +57,8 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/Room/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+            <state relative-caret-position="247">
+              <caret line="118" column="25" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -284,8 +280,8 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Quokka" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32327586" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13013698" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32327586" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13013698" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -672,8 +668,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Room/RoomWithData.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="146" column="34" lean-forward="true" selection-start-line="146" selection-start-column="34" selection-end-line="146" selection-end-column="34" />
+        <state relative-caret-position="376">
+          <caret line="153" column="40" selection-start-line="153" selection-start-column="40" selection-end-line="153" selection-end-column="40" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -682,8 +678,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/Room/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+        <state relative-caret-position="247">
+          <caret line="118" column="25" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
         </state>
       </provider>
     </entry>

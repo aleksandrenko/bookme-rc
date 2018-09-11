@@ -123,8 +123,8 @@ class RoomWithData extends React.Component {
 
           <CSSTransitionGroup
             transitionName="actionButtonsTransition"
-            transitionEnterTimeout={200}
-            transitionLeaveTimeout={200}
+            transitionEnterTimeout={300}
+            transitionLeaveTimeout={300}
           >
             {hasChangesFromTheUser && (
               <div className="actionButtons">
@@ -150,8 +150,8 @@ class RoomWithData extends React.Component {
 
           <CSSTransitionGroup
             transitionName="popupTransition"
-            transitionEnterTimeout={200}
-            transitionLeaveTimeout={200}
+            transitionEnterTimeout={300}
+            transitionLeaveTimeout={300}
           >
             {this.state.modalOpen && (
               <div className="popupWrapper">

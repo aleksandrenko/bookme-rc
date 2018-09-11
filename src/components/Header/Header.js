@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import arrow_back from './../../assets/images/arrow_back_white.png';
 import { withRouter } from 'react-router-dom';
+import { CSSTransitionGroup } from 'react-transition-group';
+
 import './styles.css';
 
 class Header extends Component {
@@ -66,21 +68,27 @@ class Header extends Component {
 
         {showMenu && <div className="menu_btn" onClick={this._toggleMenu} />}
 
-        {this.state.showMenu && (
-          <Fragment>
-            <div className="overlay" onClick={this._toggleMenu} />
-            <div className="menu">
-              <ul>
-                {showAboutMenuItem && (
-                  <li onClick={this._navigateToAboutPage}>About</li>
-                )}
-                {showLogoutMenuItem && (
-                  <li onClick={this._navigateToLogout}>Log out</li>
-                )}
-              </ul>
+        <CSSTransitionGroup
+          transitionName="menuTransition"
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={300}
+        >
+          {this.state.showMenu && (
+            <div>
+              <div className="overlay" onClick={this._toggleMenu} />
+              <div className="menu">
+                <ul>
+                  {showAboutMenuItem && (
+                    <li onClick={this._navigateToAboutPage}>About</li>
+                  )}
+                  {showLogoutMenuItem && (
+                    <li onClick={this._navigateToLogout}>Log out</li>
+                  )}
+                </ul>
+              </div>
             </div>
-          </Fragment>
-        )}
+          )}
+        </CSSTransitionGroup>
       </div>
     );
   }

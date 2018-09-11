@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12051837-d1bd-4566-9373-46ed282f7beb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Room/RoomWithData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Room/RoomWithData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Room/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Room/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/styles.css" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -45,20 +44,29 @@
       <file leaf-file-name="RoomWithData.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/Room/RoomWithData.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="153" column="40" selection-start-line="153" selection-start-column="40" selection-end-line="153" selection-end-column="40" />
+            <state relative-caret-position="119">
+              <caret line="7" selection-start-line="7" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Header.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Header/Header.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="91" column="37" lean-forward="true" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#0#51#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/Room/styles.css">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Header/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="118" column="25" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
+            <state relative-caret-position="349">
+              <caret line="107" column="51" lean-forward="true" selection-start-line="107" selection-start-column="51" selection-end-line="107" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -131,7 +139,6 @@
         <option value="$PROJECT_DIR$/src/components/LoadWrapper/styles.css" />
         <option value="$PROJECT_DIR$/src/components/LoadIndicatator/LoadIndicator.js" />
         <option value="$PROJECT_DIR$/src/components/LoadIndicatator/styles.css" />
-        <option value="$PROJECT_DIR$/src/components/Header/styles.css" />
         <option value="$PROJECT_DIR$/src/components/QRCodeReader/styles.css" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/pages/Rooms/Rooms.js" />
@@ -142,7 +149,6 @@
         <option value="$PROJECT_DIR$/public/manifest.json" />
         <option value="$PROJECT_DIR$/src/components/List/List.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/components/Header/Header.js" />
         <option value="$PROJECT_DIR$/src/components/ErrorBoundary/ErrorBoundary.js" />
         <option value="$PROJECT_DIR$/src/components/QRCodeReader/QRCameraButton.js" />
         <option value="$PROJECT_DIR$/src/pages/Login/styles.css" />
@@ -154,6 +160,8 @@
         <option value="$PROJECT_DIR$/src/index.css" />
         <option value="$PROJECT_DIR$/src/pages/Room/RoomWithData.js" />
         <option value="$PROJECT_DIR$/src/pages/Room/styles.css" />
+        <option value="$PROJECT_DIR$/src/components/Header/styles.css" />
+        <option value="$PROJECT_DIR$/src/components/Header/Header.js" />
       </list>
     </option>
   </component>
@@ -201,14 +209,27 @@
               <item name="bookme-rc" type="b2602c69:ProjectViewProjectNode" />
               <item name="bookme-rc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bookme-rc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bookme-rc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Header" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bookme-rc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bookme-rc" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="TransitionItem" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bookme-rc" type="b2602c69:ProjectViewProjectNode" />
               <item name="bookme-rc" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="Login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bookme-rc" type="b2602c69:ProjectViewProjectNode" />
@@ -478,13 +499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Header/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="95" column="37" lean-forward="true" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/QRCodeReader/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -543,16 +557,6 @@
           <caret line="12" column="19" lean-forward="true" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Header/Header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -666,20 +670,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Room/RoomWithData.js">
+    <entry file="file://$PROJECT_DIR$/src/pages/Room/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="153" column="40" selection-start-line="153" selection-start-column="40" selection-end-line="153" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="94">
+          <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="128" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/Room/styles.css">
+    <entry file="file://$PROJECT_DIR$/src/pages/Room/RoomWithData.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="118" column="25" selection-start-line="118" selection-start-column="25" selection-end-line="118" selection-end-column="25" />
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Header/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="107" column="51" lean-forward="true" selection-start-line="107" selection-start-column="51" selection-end-line="107" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Header/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="91" column="37" lean-forward="true" selection-start-line="91" selection-start-column="37" selection-end-line="91" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#51#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

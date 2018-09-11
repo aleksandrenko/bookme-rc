@@ -98,3 +98,21 @@
 
   border-bottom: 7px solid #77ced7;
 }
+
+.menuTransition-enter {
+  opacity: 0.01;
+}
+
+.menuTransition-enter.menuTransition-enter-active {
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
+}
+
+.menuTransition-leave {
+  opacity: 1;
+}
+
+.menuTransition-leave.menuTransition-leave-active {
+  opacity: 0.01;
+  transition: opacity 0.2s ease-in;
+}

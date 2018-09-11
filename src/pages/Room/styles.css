@@ -109,3 +109,39 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
 }
+
+.popupTransition-enter {
+  opacity: 0.01;
+}
+
+.popupTransition-enter.popupTransition-enter-active {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+
+.popupTransition-leave {
+  opacity: 1;
+}
+
+.popupTransition-leave.popupTransition-leave-active {
+  opacity: 0.01;
+  transition: opacity 0.3s ease-in;
+}
+
+.actionButtonsTransition-enter {
+  opacity: 0.01;
+}
+
+.actionButtonsTransition-enter.actionButtonsTransition-enter-active {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.actionButtonsTransition-leave {
+  opacity: 1;
+}
+
+.actionButtonsTransition-leave.actionButtonsTransition-leave-active {
+  opacity: 0.01;
+  transition: opacity 0.3s ease-in-out;
+}

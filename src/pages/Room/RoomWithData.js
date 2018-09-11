@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import List from '../../components/List/List';
 import TransitionItem from '../../components/TransitionItem/TransitionItem';
 import Popup from '../../components/Popup/Popup';
+import { CSSTransitionGroup } from 'react-transition-group';
 
 const formatTimeHHMMA = d => {
   function z(n) {
@@ -120,32 +121,44 @@ class RoomWithData extends React.Component {
             </div>
           </div>
 
-          {hasChangesFromTheUser && (
-            <div className="actionButtons">
-              <button
-                className="submitButton"
-                title="Submit"
-                onClick={() => this.setState({ modalOpen: true })}
-              >
-                Submit
-              </button>
-              <button
-                className="cancelButton"
-                title="Cancel"
-                onClick={() => {
-                  console.log('reset');
-                }}
-              >
-                Cancel
-              </button>
-            </div>
-          )}
+          <CSSTransitionGroup
+            transitionName="actionButtonsTransition"
+            transitionEnterTimeout={200}
+            transitionLeaveTimeout={200}
+          >
+            {hasChangesFromTheUser && (
+              <div className="actionButtons">
+                <button
+                  className="submitButton"
+                  title="Submit"
+                  onClick={() => this.setState({ modalOpen: true })}
+                >
+                  Submit
+                </button>
+                <button
+                  className="cancelButton"
+                  title="Cancel"
+                  onClick={() => {
+                    this.setState({ dirtySlots: {} });
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            )}
+          </CSSTransitionGroup>
 
-          {this.state.modalOpen && (
-            <div className="popupWrapper">
-              <Popup children={children} onClose={() => this.closePopup()} />
-            </div>
-          )}
+          <CSSTransitionGroup
+            transitionName="popupTransition"
+            transitionEnterTimeout={200}
+            transitionLeaveTimeout={200}
+          >
+            {this.state.modalOpen && (
+              <div className="popupWrapper">
+                <Popup children={children} onClose={() => this.closePopup()} />
+              </div>
+            )}
+          </CSSTransitionGroup>
         </LoadWrapper>
       </TransitionItem>
     );

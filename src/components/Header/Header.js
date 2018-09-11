@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import arrow_back from './../../assets/images/arrow_back_white.png';
 import { withRouter } from 'react-router-dom';

@@ -136,8 +136,8 @@ class RoomWithData extends React.Component {
     return (
       <TransitionItem>
         <Header
-          title="Room Name"
-          subTitle="Room Floor"
+          title={data.getRoom && data.getRoom.name}
+          subTitle={data.getRoom && data.getRoom.floor.name}
           showLoading={loading}
           hasBackButton={true}
           history={history}

@@ -5,7 +5,11 @@ import './styles.css';
 
 class List extends React.Component {
   _getSectionedItems = props => {
-    const { data = [], childrenCollection } = props;
+    let { data, childrenCollection } = props;
+
+    if (!data) {
+      data = [];
+    }
 
     const getSectionLi = (item, props) => {
       const { labelKey } = props;

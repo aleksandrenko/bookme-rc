@@ -46,7 +46,7 @@ class RoomGroups extends React.Component {
         {({ loading, error, data, fetchMore, refetch }) => {
           return (
             <TransitionItem>
-              <Header title="BookME" showLoading={loading} history={history} />
+              <Header title="Sofia" showLoading={loading} history={history} />
 
               <LoadWrapper loading={loading} error={error} data={data}>
                 <Fragment>

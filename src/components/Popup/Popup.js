@@ -5,33 +5,33 @@ import './styles.css';
 
 class Popup extends React.Component {
   render() {
-    const { onClose, children } = this.props;
+    const { onClose, children, onConfirm } = this.props;
 
     return (
       <div className="popup">
         <h1>Confirm updates</h1>
-        {children.booking.length && (
+        {!!children.booking.length && (
           <Fragment>
             <h4>Book slots:</h4>
             <ul>
               {children.booking.map(item => {
                 return (
-                  <li className="slot" key={item.startTime}>
-                    {item.name}
+                  <li className="slot" key={item}>
+                    {item}
                   </li>
                 );
               })}
             </ul>
           </Fragment>
         )}
-        {children.unbooking.length && (
+        {!!children.unbooking.length && (
           <Fragment>
             <h4>Unbook slots:</h4>
             <ul>
               {children.unbooking.map(item => {
                 return (
                   <li className="slot" key={item}>
-                    {item.name}
+                    {item}
                   </li>
                 );
               })}
@@ -39,18 +39,10 @@ class Popup extends React.Component {
           </Fragment>
         )}
         <div className="actionButtons">
-          <button
-            className="submitButton"
-            title="Submit"
-            onClick={() => console.log('sendData')}
-          >
+          <button className="submitButton" title="Submit" onClick={onConfirm}>
             Confirm
           </button>
-          <button
-            className="cancelButton"
-            title="Cancel"
-            onClick={() => onClose()}
-          >
+          <button className="cancelButton" title="Cancel" onClick={onClose}>
             Cancel
           </button>
         </div>
@@ -61,7 +53,8 @@ class Popup extends React.Component {
 
 Popup.propTypes = {
   children: PropTypes.object,
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
+  onConfirm: PropTypes.func.isRequired
 };
 
 export default Popup;

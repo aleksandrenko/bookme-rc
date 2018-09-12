@@ -1,4 +1,4 @@
-import { createLogger, format, transports } from 'winston';
+import { createLogger, transports, format } from 'winston';
 import moment from 'moment';
 
 const customFormat = format.printf(info => {

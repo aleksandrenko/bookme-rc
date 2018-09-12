@@ -20,9 +20,27 @@ const formatTimeHHMMA = d => {
 const extractHour = date => formatTimeHHMMA(new Date(date));
 const isSlotBookedByMe = slot => slot.bookedBy === '1';
 
-const children = {
-  booking: ['12:30 PM - 13:30 PM', '14:00 PM - 14:30 PM'],
-  unbooking: ['13:30 PM - 14:00 PM']
+const concatConsecutiveSlots = _slots => {
+  const slots = JSON.parse(JSON.stringify(_slots));
+  const groupedSlots = slots.reduce((acc, item) => {
+    if (acc.length === 0) {
+      acc.push(item);
+      return acc;
+    }
+
+    const previousItem = acc[acc.length - 1];
+    if (item.hour.startTime === previousItem.hour.endTime) {
+      previousItem.hour = {
+        ...previousItem.hour,
+        endTime: item.hour.endTime
+      };
+    } else {
+      acc.push(item);
+    }
+    return acc;
+  }, []);
+
+  return groupedSlots;
 };
 
 class RoomWithData extends React.Component {
@@ -54,10 +72,59 @@ class RoomWithData extends React.Component {
     this.setState({ modalOpen: false });
   };
 
+  onPopupConfirm = aggregatedSlots => {
+    const { toggleRoomBooking } = this.props;
+
+    aggregatedSlots.filter(slot => slot.isDirty).forEach(slot => {
+      const slotInput = this.transformDataForBE(slot);
+      toggleRoomBooking({
+        variables: {
+          slotInput
+        }
+      });
+    });
+
+    this.setState({ modalOpen: false });
+  };
+
+  transformDataForBE = slot => {
+    return {
+      startTime: new Date(slot.hour.startTime).toISOString(),
+      endTime: new Date(slot.hour.endTime).toISOString(),
+      emailKey: slot.roomEmailKey,
+      booked: !!slot.bookedBy,
+      roomId: slot.room.id
+    };
+  };
+
+  modifyData = data => {
+    const touchedData = data.filter(slot => slot.isDirty);
+    const bookingData = touchedData.filter(slot => slot.checked);
+    const unbookingData = touchedData.filter(slot => !slot.checked);
+    const groupedBookingSlots = concatConsecutiveSlots(bookingData);
+    const groupedUnbookingSlots = concatConsecutiveSlots(unbookingData);
+
+    const finalData = {};
+    finalData.booking = groupedBookingSlots.map(
+      slot =>
+        `${extractHour(slot.hour.startTime)} - ${extractHour(
+          slot.hour.endTime
+        )}`
+    );
+    finalData.unbooking = groupedUnbookingSlots.map(
+      slot =>
+        `${extractHour(slot.hour.startTime)} - ${extractHour(
+          slot.hour.endTime
+        )}`
+    );
+    return finalData;
+  };
+
   render() {
     const dirtySlots = this.state.dirtySlots;
-    const { data, error, loading, history } = this.props;
+    const { data, error, loading, history, toggleRoomBooking } = this.props;
     const rawSlotsData = data.getRoom ? data.getRoom.appointmentSlots : [];
+    const roomEmailKey = data.getRoom && data.getRoom.emailKey;
 
     const hasChangesFromTheUser = !!Object.keys(dirtySlots).length;
 
@@ -77,7 +144,8 @@ class RoomWithData extends React.Component {
         highlighted: isItemStatusChangedInTheUI,
         name: `${extractHour(rawSlot.hour.startTime)} - ${extractHour(
           rawSlot.hour.endTime
-        )}`
+        )}`,
+        roomEmailKey
       };
 
       return Object.assign(additionalSlotData, rawSlot);
@@ -86,8 +154,8 @@ class RoomWithData extends React.Component {
     return (
       <TransitionItem>
         <Header
-          title="Room Name"
-          subTitle="Room Floor"
+          title={data.getRoom && data.getRoom.name}
+          subTitle={data.getRoom && data.getRoom.floor.name}
           showLoading={loading}
           hasBackButton={true}
           history={history}
@@ -155,7 +223,13 @@ class RoomWithData extends React.Component {
           >
             {this.state.modalOpen && (
               <div className="popupWrapper">
-                <Popup children={children} onClose={() => this.closePopup()} />
+                <Popup
+                  children={this.modifyData(aggregatedSlots)}
+                  onClose={() => this.closePopup()}
+                  onConfirm={() => {
+                    this.onPopupConfirm(aggregatedSlots);
+                  }}
+                />
               </div>
             )}
           </CSSTransitionGroup>

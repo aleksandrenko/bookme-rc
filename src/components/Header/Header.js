@@ -17,6 +17,20 @@ class Header extends PureComponent {
     };
   }
 
+  _toggleMenu = () => {
+    this.setState({
+      showMenu: !this.state.showMenu
+    });
+  };
+
+  _navigateToAboutPage = () => {
+    this.props.history.push('/about');
+  };
+
+  _navigateToLogout = () => {
+    this.props.history.push('/login', { logout: true });
+  };
+
   render() {
     const {
       title,

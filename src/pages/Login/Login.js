@@ -24,14 +24,22 @@ class Login extends React.Component {
     };
   }
 
-  getSnapshotBeforeUpdate = () => {
-    const { location } = this.props;
+  submitLogin = login => {
+    const state = this.state;
 
-    location.state &&
-      location.state.logout &&
-      localStorage.setItem('token', null);
+    this.setState({
+      ...state,
+      submitting: true
+    });
 
-    return null;
+    const credentials = {
+      username: state.username,
+      password: state.password
+    };
+
+    login({
+      variables: credentials
+    });
   };
 
   render() {
@@ -54,8 +62,8 @@ class Login extends React.Component {
             error: null
           });
         }}
-        update={(caches, { data: { login } }) => {
-          localStorage.setItem('token', login);
+        update={(caches, result) => {
+          localStorage.setItem('token', result.data.login);
           history.goBack();
         }}
       >
@@ -89,13 +97,18 @@ class Login extends React.Component {
                     className="input"
                     type="password"
                     placeholder="Password"
+                    value={state.password}
                     onChange={password =>
                       this.setState({
                         ...state,
                         password: password.target.value
                       })
                     }
-                    value={state.password}
+                    onKeyPress={target => {
+                      if (target.charCode === 13) {
+                        this.submitLogin(login);
+                      }
+                    }}
                   />
                   <button
                     className="button"
@@ -104,24 +117,7 @@ class Login extends React.Component {
                       this.state.submitting ||
                       (!state.password || !state.username)
                     }
-                    onClick={() => {
-                      this.setState({
-                        ...state,
-                        submitting: true
-                      });
-
-                      const credentials = {
-                        username: state.username,
-                        password: state.password
-                      };
-
-                      login({
-                        variables: credentials,
-                        updateQuery: data => {
-                          localStorage.setItem('credentials', credentials);
-                        }
-                      });
-                    }}
+                    onClick={() => this.submitLogin(login)}
                   >
                     Login
                   </button>

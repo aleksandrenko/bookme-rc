@@ -26,7 +26,8 @@ class Header extends Component {
   };
 
   _navigateToLogout = () => {
-    this.props.history.push('/login', { logout: true });
+    localStorage.setItem('token', null);
+    this.props.history.push('/login');
   };
 
   render() {

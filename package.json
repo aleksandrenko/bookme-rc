@@ -48,6 +48,7 @@
     "eject": "react-app-rewired eject"
   },
   "devDependencies": {
-    "@storybook/react": "^3.4.10"
+    "@storybook/react": "^3.4.10",
+    "react-app-rewire-babel-loader": "^0.1.1"
   }
 }

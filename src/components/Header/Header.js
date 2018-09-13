@@ -1,12 +1,14 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import arrow_back from './../../assets/images/arrow_back_white.png';
 import { withRouter } from 'react-router-dom';
-import { CSSTransitionGroup } from 'react-transition-group';
+import OpacityTransition from '../TransitionItem/OpacityTransition';
+
+import BackButton from './BackButton';
+import Menu from './Menu';
 
 import './styles.css';
 
-class Header extends Component {
+class Header extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -15,49 +17,20 @@ class Header extends Component {
     };
   }
 
-  _toggleMenu = () => {
-    this.setState({
-      showMenu: !this.state.showMenu
-    });
-  };
-
-  _navigateToAboutPage = () => {
-    this.props.history.push('/about');
-  };
-
-  _navigateToLogout = () => {
-    this.props.history.push('/login', { logout: true });
-  };
-
   render() {
     const {
       title,
       subTitle,
       hasBackButton,
-      history,
       showLoading,
       showMenu = true,
-      showAboutMenuItem = true,
-      showLogoutMenuItem = true,
-      onBackButtonPress,
-      skipNavigation
+      showAboutMenuItem,
+      showLogoutMenuItem
     } = this.props;
 
     return (
       <div className="header container">
-        {hasBackButton && (
-          <img
-            className="backBtn"
-            src={arrow_back}
-            width="24"
-            height="24"
-            onClick={() => {
-              skipNavigation || history.goBack();
-              onBackButtonPress && onBackButtonPress();
-            }}
-            alt="Go Back"
-          />
-        )}
+        {hasBackButton && <BackButton onClick={this.onBackButtonClick} />}
 
         <div className="titleWrapper">
           <div className="title">{title}</div>
@@ -66,32 +39,41 @@ class Header extends Component {
 
         {showLoading && <div className="loader" />}
 
-        {showMenu && <div className="menu_btn" onClick={this._toggleMenu} />}
+        {showMenu && <div className="menu_btn" onClick={this.toggleMenu} />}
 
-        <CSSTransitionGroup
-          transitionName="menuTransition"
-          transitionEnterTimeout={300}
-          transitionLeaveTimeout={300}
-        >
+        <OpacityTransition>
           {this.state.showMenu && (
-            <div>
-              <div className="overlay" onClick={this._toggleMenu} />
-              <div className="menu">
-                <ul>
-                  {showAboutMenuItem && (
-                    <li onClick={this._navigateToAboutPage}>About</li>
-                  )}
-                  {showLogoutMenuItem && (
-                    <li onClick={this._navigateToLogout}>Log out</li>
-                  )}
-                </ul>
-              </div>
-            </div>
+            <Menu
+              showAboutMenuItem={showAboutMenuItem}
+              showLogoutMenuItem={showLogoutMenuItem}
+              aboutPageClickHandler={this.navigateToAboutPage}
+              logoutClickHandler={this.navigateToLogout}
+            />
           )}
-        </CSSTransitionGroup>
+        </OpacityTransition>
       </div>
     );
   }
+
+  toggleMenu = () => {
+    this.setState({
+      showMenu: !this.state.showMenu
+    });
+  };
+
+  navigateToAboutPage = () => {
+    this.props.history.push('/about');
+  };
+
+  navigateToLogout = () => {
+    this.props.history.push('/login', { logout: true });
+  };
+
+  onBackButtonClick = () => {
+    const { history, onBackButtonPress, skipNavigation } = this.props;
+    skipNavigation || history.goBack();
+    onBackButtonPress && onBackButtonPress();
+  };
 }
 
 Header.propTypes = {

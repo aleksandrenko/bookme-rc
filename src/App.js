@@ -13,6 +13,13 @@ import QRCodeReaderComponent from './components/QRCodeReader/QRCodeReader';
 import PageTransition from 'react-router-page-transition';
 
 class App extends Component {
+  componentDidMount() {
+    const splash = document.getElementById('splash-img');
+    if (splash) {
+      // Removes element from DOM
+      splash.outerHTML = '';
+    }
+  }
   render() {
     const { location, history } = this.props;
     const showQRScannerButton =

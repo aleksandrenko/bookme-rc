@@ -158,8 +158,6 @@ class RoomWithData extends React.Component {
       return Object.assign(additionalSlotData, rawSlot);
     });
 
-    console.log(aggregatedSlots);
-
     return (
       <TransitionItem>
         <Header

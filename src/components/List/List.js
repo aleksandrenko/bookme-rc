@@ -31,14 +31,14 @@ class List extends React.Component {
         isHighlighted
       } = props;
       let classNames = `item ${hasArrow ? 'arrow-right' : ''} ${
-        item.disabled ? 'disabled' : ''
+        item.isDisabled ? 'disabled' : ''
       } ${item[isHighlighted] ? 'highlighted' : ''}`;
 
       return (
         <li
           className={classNames}
           key={`item-${item.id}`}
-          disabled={item.disabled}
+          disabled={item.isDisabled}
           onClick={() => {
             onItemClick && onItemClick(item);
           }}

@@ -12,6 +12,9 @@ const GET_ROOM = gql`
       name
       id
       emailKey
+      assets
+      seats
+      image
       floor {
         name
       }

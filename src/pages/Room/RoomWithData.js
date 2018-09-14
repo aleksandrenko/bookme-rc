@@ -53,6 +53,10 @@ class RoomWithData extends React.Component {
   }
 
   handleChildClick = item => {
+    if (item.isDisabled) {
+      return;
+    }
+
     const dirtySlots = Object.assign({}, this.state.dirtySlots);
     const newItem = Object.assign(item, { checked: !item.checked });
     const isSlotChangedByUser = newItem.checked !== !!item.bookedBy;
@@ -122,9 +126,12 @@ class RoomWithData extends React.Component {
 
   render() {
     const dirtySlots = this.state.dirtySlots;
-    const { data, error, loading, history, toggleRoomBooking } = this.props;
+    const { data, error, loading, history } = this.props;
     const rawSlotsData = data.getRoom ? data.getRoom.appointmentSlots : [];
     const roomEmailKey = data.getRoom && data.getRoom.emailKey;
+    const image = data.getRoom && data.getRoom.image;
+    const seats = data.getRoom && data.getRoom.seats;
+    const assets = data.getRoom && data.getRoom.assets;
 
     const hasChangesFromTheUser = !!Object.keys(dirtySlots).length;
 
@@ -138,7 +145,7 @@ class RoomWithData extends React.Component {
 
       const additionalSlotData = {
         checked: slotCheckStatus,
-        isDisabled: !isSlotBookedByMe(rawSlot),
+        isDisabled: !!rawSlot.bookedBy && !isSlotBookedByMe(rawSlot),
         isDirty: isItemStatusChangedInTheUI,
         contextLabel,
         highlighted: isItemStatusChangedInTheUI,
@@ -151,6 +158,8 @@ class RoomWithData extends React.Component {
       return Object.assign(additionalSlotData, rawSlot);
     });
 
+    console.log(aggregatedSlots);
+
     return (
       <TransitionItem>
         <Header
@@ -162,10 +171,14 @@ class RoomWithData extends React.Component {
         />
         <LoadWrapper loading={loading} error={error} data={data}>
           <div className="details">
-            <img src="" className="roomImage" alt="room name" />
+            <img src={image} className="roomImage" alt="room name" />
             <div className="info">
-              <div className="prop">Seats:</div>
-              <div className="prop">Assets:</div>
+              <div className="prop">
+                Seats: <span className="roomDetails">{seats}</span>
+              </div>
+              <div className="prop">
+                Assets: <span className="roomDetails">{assets}</span>
+              </div>
             </div>
           </div>
           <div className="slots">
